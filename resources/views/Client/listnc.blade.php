@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h4 class="text-body">List Noir des Client</h4>
+                <h4 class="text-body">Liste Noire des Clients</h4>
             </div>
             <div class="card-body">
                 <nav class="navbar" >

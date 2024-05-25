@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Nestlé-Shop | welcome</title>
+    <title>Nestlé Shop | welcome</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,7 +49,7 @@
         <div class="container-xxl position-relative p-0" id="home">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">Nestlé-Shop</h1>
+                    <h1 class="m-0">Nestlé Shop</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -126,15 +126,15 @@
             <div class="container">
                 <div class="row g-5 flex-column-reverse flex-lg-row">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-4">Plateforme En Ligne Qui Vend Les Téléphones Mobile Incroyable Avec Une Qualité De Hub</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, itaque culpa obcaecati eum quia labore ducimus facilis error tempore veniam odio soluta quidem perferendis esse dolore maiores voluptas illo voluptatem.</p>
+                        <h1 class="mb-4">Votre Accès Privilégié à la Qualité Nestlé : Des Produits Incontournables à Prix Réduits !</h1>
+                        <p class="mb-4">Chez Nestlé, nous croyons en la valorisation de nos employés. C'est pourquoi nous vous offrons un accès exclusif à notre plateforme en ligne, où vous pouvez acheter nos produits emblématiques tels que les biscuits, les chocolats, les cafés et bien plus encore, à des prix avantageux. Rejoignez-nous dès maintenant pour profiter de ces offres spéciales réservées à notre famille Nestlé.</p>
                         <div class="d-flex mb-4">
                             <div class="flex-shrink-0 btn-square rounded-circle bg-primary text-white">
                                 <i class="fa fa-check"></i>
                             </div>
                             <div class="ms-4">
-                                <h5>Premier Processus De Travail</h5>
-                                <p class="mb-0">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo magna</p>
+                                <h5>Avantages de Premier Ordre</h5>
+                                <p class="mb-0">En tant qu'employé de Nestlé, vous méritez le meilleur. Notre plateforme vous offre un accès privilégié à une sélection de produits de qualité à des prix réduits, pour vous permettre de profiter pleinement de la gamme Nestlé.</p>
                             </div>
                         </div>
                         <div class="d-flex mb-4">
@@ -142,18 +142,18 @@
                                 <i class="fa fa-check"></i>
                             </div>
                             <div class="ms-4">
-                                <h5>Assistance 24h/24 et 7j/7</h5>
-                                <p class="mb-0">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit clita duo justo magna</p>
+                                <h5>Support 24/7</h5>
+                                <p class="mb-0">Votre satisfaction est notre priorité. Notre équipe d'assistance est disponible 24 heures sur 24, 7 jours sur 7, pour répondre à vos questions et vous accompagner dans l'utilisation de notre plateforme.</p>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-lg-6">
-                        <img class="img-fluid rounded wow zoomIn mt-5" data-wow-delay="0.5s" src="{{asset('img/IT-Support--removebg.png')}}">
+                        <img class="img-fluid rounded wow zoomIn mt-5" data-wow-delay="0.5s" src="{{asset('img/a.png')}}">
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- About End -->
 
 
@@ -455,7 +455,7 @@
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-3">Entrer En Contact</h1>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, itaque culpa obcaecati eum quia labore ducimus facilis error tempore veniam odio soluta quidem perferendis esse dolore maiores voluptas illo voluptatem.</p>
+                        <p class="mb-4">Chez Nestlé, votre avis compte. Nous sommes là pour répondre à vos questions, écouter vos commentaires et vous aider de toutes les manières possibles. N'hésitez pas à nous contacter en utilisant les informations ci-dessous :</p>
                         <div class="d-flex mb-4">
                             <div class="flex-shrink-0 btn-square rounded-circle bg-primary text-white">
                                 <i class="fa fa-phone-alt"></i>
@@ -549,7 +549,7 @@
                         <a class="btn btn-link" href="#Accueil">Accueil</a>
                         <a class="btn btn-link" href="#À-propos">À-propos</a>
                         <a class="btn btn-link" href="#Contactez-nous">Contactez-nous</a>
-                        <a class="btn btn-link" href="#">Support</a>
+                        {{-- <a class="btn btn-link" href="#">Support</a> --}}
                     </div>
 {{--                    <div class="col-md-6 col-lg-3">--}}
 {{--                        <p class="section-title text-white h5 mb-4">Community<span></span></p>--}}
