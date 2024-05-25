@@ -1,0 +1,294 @@
+/*-----------------
+	18. Edit Profile
+-----------------------*/
+
+.profile-img-wrap {
+	height: 120px;
+	position: absolute;
+	width: 120px;
+	background: #fff;
+	overflow: hidden;
+}
+.profile-basic {
+	margin-left: 140px;
+}
+.profile-basic .cal-icon {
+	width: 90%;
+}
+.profile-img-wrap img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+}
+.fileupload.btn {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: rgba(33, 33, 33, 0.5);
+	border-radius: 0;
+	padding: 3px 10px;
+	border: none;
+}
+.fileupload input.upload {
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	font-size: 20px;
+	margin: 0;
+	opacity: 0;
+	padding: 0;
+	position: absolute;
+	right: -3px;
+	top: -3px;
+	padding: 5px;
+}
+.btn-text {
+	color: #fff;
+}
+.submit-section {
+	text-align: center;
+	margin-top: 40px;
+}
+.submit-btn {
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 200px;
+    padding: 10px 20px;
+}
+.form-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}
+.profile-img-wrap.edit-img {
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.profile-img-wrap.edit-img .fileupload.btn {
+	left: 0;
+}
+
+
+
+/*-----------------
+	24. Profile
+-----------------------*/
+
+.profile-details {
+	text-align: center;
+}
+.personal-info li .title {
+	color: #4f4f4f;
+	float: left;
+	font-weight: 500;
+	margin-right: 30px;
+	width: 25%;
+}
+.personal-info li .text {
+	color: #8e8e8e;
+	display: block;
+	overflow: hidden;
+}
+.personal-info li {
+	margin-bottom: 10px;
+}
+.personal-info {
+	list-style: none;
+	margin-bottom: 0;
+	padding: 0;
+}
+.profile-view {
+	position: relative;
+}
+.profile-view .profile-img-wrap {
+	height: 120px;
+	width: 120px;
+}
+.profile-view .profile-img {
+	width: 120px;
+	height: 120px;
+}
+.profile-view .profile-img .avatar {
+	font-size: 24px;
+	height: 120px;
+	line-height: 120px;
+	margin: 0;
+	width: 120px;
+}
+.profile-view .profile-basic {
+    margin-left: 140px;
+    padding-right: 50px;
+}
+.profile-view .pro-edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.edit-icon {
+    background-color: #eee;
+    border: 1px solid #e3e3e3;
+    border-radius: 24px;
+    color: #bbb;
+    float: right;
+    font-size: 12px;
+    line-height: 24px;
+    min-height: 26px;
+    text-align: center;
+    width: 26px;
+}
+.edit-icon:hover {
+	background-color: #f43b48;
+	border-color: #f43b48;
+    color: #fff;
+}
+.delete-icon {
+    color: #e30b0b;
+    float: right;
+    font-size: 18px;
+}
+.delete-icon:hover {
+    color: #e30b0b;
+}
+.staff-msg {
+	margin-top: 30px;
+}
+.experience-box {
+	position: relative;
+}
+.experience-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.experience-list::before {
+	background: #ddd;
+	bottom: 0;
+	content: "";
+	left: 8px;
+	position: absolute;
+	top: 8px;
+	width: 2px;
+}
+.experience-list > li {
+	position: relative;
+}
+.experience-list > li:last-child .experience-content {
+	margin-bottom: 0;
+}
+.experience-user .avatar {
+	height: 32px;
+	line-height: 32px;
+	margin: 0;
+	width: 32px;
+}
+.experience-list > li .experience-user {
+	background: #fff;
+	height: 10px;
+	left: 4px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 4px;
+	width: 10px;
+	
+}
+.experience-list > li .experience-content {
+	background-color: #fff;
+	margin: 0 0 20px 40px;
+	padding: 0;
+	position: relative;
+}
+.experience-list > li .experience-content .timeline-content {
+	color: #9e9e9e;
+}
+.experience-list > li .experience-content .timeline-content a.name {
+	color: #616161;
+	font-weight: bold;
+}
+.experience-list > li .time {
+	color: #bdbdbd;
+	display: block;
+	font-size: 12px;
+	line-height: 1.35;
+}
+.before-circle {
+	background-color: #ddd;
+	border-radius: 50%;
+	height: 10px;
+	width: 10px;
+}
+.skills > span {
+	border: 1px solid #ccc;
+	border-radius: 500px;
+	display: inline-block;
+	margin-bottom: 10px;
+	padding: 6px 12px;
+	text-align: center;
+}
+.profile-info-left {
+	border-right: 2px dashed #ccc;
+}
+.bootstrap-tagsinput {
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 0;
+    box-shadow: unset;
+    display: block;
+    min-height: 44px;
+    padding: 6px 6px 0;
+}
+.bootstrap-tagsinput .badge {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 6px;
+    padding: 10px 15px;
+}
+.add-more a {
+	color: #f43b48;
+}
+.add-more a:hover {
+	color: #f10e1d;
+}
+.avatar-box {
+    float: left;
+}
+.pro-overview .personal-info li .title {
+	width: 50%;
+}
+.profile-box {
+	min-height: 250px;
+}
+
+
+/*-----------------
+	35. Client Profile
+-----------------------*/
+
+.tab-box {
+    border-bottom: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.team-members a.followers-add {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	color: #ccc;
+	display: inline-block;
+	font-size: 20px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 30px;
+}
+
+
+.col-md-6{
+	padding: 15px;
+	
+}
+
+.remove-button{
+	margin-left: 45%;
+}

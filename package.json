@@ -1,0 +1,17 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.21.5",
+        "@popperjs/core": "^2.11.6",
+        "axios": "^1.1.2",
+        "bootstrap": "^5.2.3",
+        "laravel-vite-plugin": "^0.7.5",
+        "sass": "^1.56.1",
+        "vite": "^4.0.0"
+    }
+}

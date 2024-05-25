@@ -1,0 +1,28 @@
+--client
+    --voir les produit
+    -- faire la commande
+
+
+        user(client) --->1 navigation dans le site web
+                     ----> 2 faire le commmande
+                            --->voir le produit
+                            ---> choisir la qte
+                            ----> add to card
+                            ----> modifier les informaiton de cmd
+                        =====> confirmation de cmd
+
+
+
+                          coter dev:
+                                    ===> creation de migration table "cards" (pour stocker les info dyal produit)
+                                        php artisan make:migration create_cards_table
+                                        php artisan migrate ==>
+                                    ===> creation de model "collection avec le DB"
+                                        php artisan make:model cardModel
+                                    ====> creation de controller "methode"
+                                        php artisan make:controller cardcontroller
+                                    ====> creation de route
+                                    ====> creation de view
+
+
+
