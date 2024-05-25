@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PhoneX | phone shop</title>
+    <title>Nestlé-Shop | welcome</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,7 +49,7 @@
         <div class="container-xxl position-relative p-0" id="home">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">PhoneX</h1>
+                    <h1 class="m-0">Nestlé-Shop</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -80,7 +80,7 @@
                             </button>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid rounded animated zoomIn" src="{{asset('img/phone_main-removebg.png')}}" alt="">
+                            <img class="img-fluid rounded animated zoomIn" src="{{asset('img/Ness.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -461,7 +461,7 @@
                             </div>
                             <div class="ms-3">
                                 <p class="mb-2">Appelez-nous</p>
-                                <h5 class="mb-0">+212 045 58989</h5>
+                                <h5 class="mb-0">+212 06 30 38 81 37</h5>
                             </div>
                         </div>
                         <div class="d-flex mb-4">
@@ -470,7 +470,7 @@
                             </div>
                             <div class="ms-3">
                                 <p class="mb-2">Envoyez-nous un e-mail</p>
-                                <h5 class="mb-0">info@example.com</h5>
+                                <h5 class="mb-0">youssef.berrissoul@usmba.ac.ma</h5>
                             </div>
                         </div>
                         <div class="d-flex mb-0">
@@ -479,7 +479,7 @@
                             </div>
                             <div class="ms-3">
                                 <p class="mb-2">Notre Bureau</p>
-                                <h5 class="mb-0">123 bla, bla bla, Maroc</h5>
+                                <h5 class="mb-0"> 6G76+57X, El Jadida , Maroc</h5>
                             </div>
                         </div>
                     </div>
@@ -535,9 +535,9 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
                         <p class="section-title text-white h5 mb-4">Address<span></span></p>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 bla, bla bla, Maroc</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+212 045 58989</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>6G76+57X,El Jadida,Maroc</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>+212 06 30 38 81 37</p>
+                        <p><i class="fa fa-envelope me-3"></i>youssef@ma.nestle.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
@@ -572,16 +572,16 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">PhoneX</a>, Tous Droits Réservés.
+                            &copy; <a class="border-bottom" href="#">Nestlé </a>, Tous Droits Réservés.
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
                                 <a href="#Accueil">Accueil</a>
-                                <a href="#">Biscuits</a>
-                                <a href="#">Aider</a>
-                                <a href="#">FQA</a>
+                                <a href="#À-propos">À-propos</a>
+                                <a href="#Contactez-nous">Contactez-nous</a>
+                                <a href="#Contactez-nous">FQA</a>
                             </div>
                         </div>
                     </div>
