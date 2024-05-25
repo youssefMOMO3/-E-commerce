@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Nestlé | Nesshop</title>
+    <title>Nestlé | Store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -36,7 +36,7 @@
 </head>
 <body>
 <div class="container-fluid position-relative p-5" id="home">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #064c4c">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #0c9eec">
         <a href="/" class="navbar-brand p-0">
             <h1 class="m-0">Nestlé-shop</h1>
             <!-- <img src="img/logo.png" alt="Logo"> -->

@@ -58,14 +58,15 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
                         <a href="#Accueil" class="nav-item nav-link active">Accueil</a>
+                        <a href="{{route('client.index')}}" class="nav-item nav-link active">Boutique</a>
                         <a href="#À-propos" class="nav-item nav-link">À propos</a>
                         <a href="#Contactez-nous" class="nav-item nav-link">Contactez-nous</a>
                     </div>
                     @if(Auth::check())
                         <a href="{{url("/".Auth::user()->role."/dashbord")}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Home</a>
                     @else
-                        <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Login</a>
-                        <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Register</a>
+                        <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
+                        <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
                     @endif
                 </div>
             </nav>

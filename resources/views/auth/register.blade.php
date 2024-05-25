@@ -100,12 +100,16 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                        
                         <div class="d-flex align-items-center justify-content-between mb-3">
+                            
                             <a href="{{url("/")}}" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>PhoneX</h3>
+                                <h3  align="center" class="text-primary"><i class="fa fa-hashtag me-2"></i>Nestlé-Shop</h3>
                             </a>
-                            <h3>Sign Up</h3>
                         </div>
+                 
+                        <h3 align="center">S'inscrire</h3>
+                        <hr>
                         @error('email')
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong>There is a problem !!</strong> {{$message}}
@@ -150,6 +154,7 @@
                         </div>
                         
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
+                        <hr>
                         <p class="text-center mb-0">Already have an Account? <a href="{{route("login")}}">Sign In</a></p>
                     </div>
                 </form> 

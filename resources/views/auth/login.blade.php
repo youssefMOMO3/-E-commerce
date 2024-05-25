@@ -18,10 +18,12 @@
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="{{url("/")}}" class="">
-                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>PhoneX</h3>
+                                <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Nestlé-Shop</h3>
                             </a>
-                            <h3>Sign In</h3>
+                         
                         </div>
+                        <h3 align="center" >Se connecter</h3>
+                        <hr>
                         @error('email')
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <strong>There is a problem !!</strong> {{$message}}
@@ -63,6 +65,7 @@
                             <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
 
                         </form>
+                        <hr>
                         <p class="text-center mb-0">Don't have an Account? <a href="{{route("register")}}">Sign Up</a></p>
                     </div>
                 </div>
