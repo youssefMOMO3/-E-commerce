@@ -61,7 +61,7 @@
     </nav>
 </div>
 <div class="container-fluid">
-    <a href="{{ route('client.show')}}" class="btn btn-danger">Retourn</a>
+    <a href="{{ route('client.show')}}" class="btn btn-danger">Retour</a>
     <div class="card" style="margin-top: 15px">
         <div class="card-header">
             <h3 class="text-body mt-2" style="margin-left: 10px">Tableau du Bord</h3>

@@ -79,7 +79,7 @@
             <div class="card mb-3 d-inline-flex flex-column " style="max-width: 540px; margin-top: 50px ;margin-left: 400px">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{asset("images/product/$d->avatar")}}" class="img-fluid rounded-center" alt="..." style="height:300px">
+                        <img src="{{asset("images/product/$d->avatar")}}" class="img-fluid rounded-center" alt="..." style="width:500px; height:300px">
                     </div>
                     <div class="col-md-8" >
                         <div class="card-body">
@@ -161,7 +161,7 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">PhoneX</a>, Tous Droits Réservés.
+                        &copy; <a class="border-bottom" href="#">Nestlé</a>, Tous Droits Réservés.
 
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                     </div>

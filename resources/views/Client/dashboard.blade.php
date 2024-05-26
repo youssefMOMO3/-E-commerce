@@ -58,14 +58,15 @@
                     @csrf
                 </form>
             @else
-                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Login</a>
-                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Register</a>
+                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
+                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
             @endif
 
-            <a href="{{route('client.card')}}" class="btn btn-warning" style="margin-left: 8px;text-decoration: none">
-                <i class="bi bi-basket-fill"></i>
+            <a href="{{route('client.card')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+                <i class="bi bi-cart-fill"></i>
                 Panier
             </a>
+            
         </div>
     </nav>
 </div>

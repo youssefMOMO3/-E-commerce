@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Nestlé Shop | welcome</title>
+    <title>Nestlé Shop | Welcome</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -75,7 +75,7 @@
                 <div class="container">
                     <div class="row g-5 align-items-center">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated slideInDown">La première plateforme qui vend des téléphones de qualité câline</h1>
+                            <h1 class="text-white mb-4 animated slideInDown">Bienvenue sur votre plateforme exclusive Nestlé : des produits de qualité à des prix avantageux rien que pour vous !</h1>
                             <button class="btn btn-dark me-2 " style="margin-left:230px;width: 150px;border-radius: 8px ">
                                 <a href="{{route('client.index')}}" style="text-decoration: none" class="text-white">Commencez<i class="fa-solid fa-play" style="margin-left: 6px"></i></a>
                             </button>

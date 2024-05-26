@@ -65,7 +65,7 @@
     <div class="container-fluid container-responsive">
         <div class="card" style="margin-left: 12px;margin-right: 10px">
             <div class="card-header">
-                <a class="btn btn-danger" href="{{route('client.index')}}">Retourn</a>
+                <a class="btn btn-danger" href="{{route('client.index')}}">Retour</a>
             </div>
             <table class="table table-responsive">
                 <tr style="text-align: center">
