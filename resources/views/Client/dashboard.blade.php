@@ -9,6 +9,13 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
     <!-- Favicon -->
     <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
@@ -30,6 +37,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
+
+    <link href="{{asset('css/card.css')}}" rel="stylesheet">
 
     {{-- title icon --}}
     <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
@@ -88,75 +97,43 @@
 
 <!--Product-->
 
-<div class="container-fluid  " style="margin-top: 100px ">
 
-        @foreach($product as $p)
-            <div class="row row-cols-1 row-cols-md-3 g-2 d-inline-flex flex-column justify-content-center">
+    <div class="container py-5">
+        {{-- <h1 class="text-center">Popular Dishes</h1> --}}
+        <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+            @foreach($product as $p)
                 <div class="col">
-                    <div class="card " style="width: 200px ;margin-left: 10px">
-                        <img src="{{asset("images/product/$p->avatar")}}" class="card-img-top " alt="...">
+                    <div class="card">
+                        <img src="{{ asset('images/product/' . $p->avatar) }}" class="card-img-top" alt="{{ $p->name }}">
                         <div class="card-body">
-                            <h5 class="card-title text-center">{{$p->name}}</h5>
-                            <a href="{{route('client.produits',$p->id)}}" class="btn btn-primary mt-2"
-                                style="margin-left: 40px">Voir Plus</a>
+                            <h5 class="card-title text-center">{{ $p->name }}</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.</p>
+                        </div>
+                        <div class="mb-5 d-flex justify-content-around">
+                            <h3>190$</h3>
+                            <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary">Voir Plus</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
-
-
-        @if (session('status'))
-            <div class="alert alert-warning" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
-
-</div>
-<div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5 px-lg-5">
-        <div class="row g-5">
-{{--            <div class="col-md-6 col-lg-3">--}}
-{{--                <p class="section-title text-white h5 mb-4">Address<span></span></p>--}}
-{{--                <p><i class="fa fa-map-marker-alt me-3"></i>123 bla, bla bla, Maroc</p>--}}
-{{--                <p><i class="fa fa-phone-alt me-3"></i>+212 045 58989</p>--}}
-{{--                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>--}}
-{{--                <div class="d-flex pt-2">--}}
-{{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>--}}
-{{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-6 col-lg-3">--}}
-{{--                <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>--}}
-{{--                <a class="btn btn-link" href="#Accueil">Accueil</a>--}}
-{{--                <a class="btn btn-link" href="#À-propos">À-propos</a>--}}
-{{--                <a class="btn btn-link" href="#Contactez-nous">Contactez-nous</a>--}}
-{{--                <a class="btn btn-link" href="#">Support</a>--}}
-{{--            </div>--}}
-            {{--                    <div class="col-md-6 col-lg-3">--}}
-            {{--                        <p class="section-title text-white h5 mb-4">Community<span></span></p>--}}
-            {{--                        <a class="btn btn-link" href="">Career</a>--}}
-            {{--                        <a class="btn btn-link" href="">Leadership</a>--}}
-            {{--                        <a class="btn btn-link" href="">Strategy</a>--}}
-            {{--                        <a class="btn btn-link" href="">History</a>--}}
-            {{--                        <a class="btn btn-link" href="">Components</a>--}}
-            {{--                    </div>--}}
-            {{--                    <div class="col-md-6 col-lg-3">--}}
-            {{--                        <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>--}}
-            {{--                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>--}}
-            {{--                        <div class="position-relative w-100 mt-3">--}}
-            {{--                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">--}}
-            {{--                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
+            @endforeach
         </div>
     </div>
+
+    @if (session('status'))
+        <div class="alert alert-warning" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
+
+
+
+<div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
     <div class="container px-lg-5">
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">PhoneX</a>, Tous Droits Réservés.
+                    &copy; <a class="border-bottom" href="#">Nestlé</a>, Tous Droits Réservés.
 
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                 </div>

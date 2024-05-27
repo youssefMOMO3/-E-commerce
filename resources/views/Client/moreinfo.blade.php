@@ -12,7 +12,44 @@
     <!-- Favicon -->
     <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
-    <!-- Google Web Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    {{-- <link href="{{asset('css/card.css')}}" rel="stylesheet"> --}}
+    <style>
+        body {
+            background-color: #f9f6f2;
+        }
+        .card-img-top, .img-fluid {
+            border-radius: 50px;
+            padding: 20px;
+            object-fit: cover;
+            width: 100%;
+            height: 300px; /* Set a fixed height for the image */
+        }
+        .card {
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+            max-width: 350px; /* Adjust width to match example */
+            margin: auto; /* Center the card */
+        }
+        .card-body {
+            padding: 25px;
+            margin-top: -15px;
+        }
+        .btn-primary {
+            border-radius: 50px;
+            width: 120px;
+        }
+        .btn-primary:hover {
+            background-color: black;
+            border: none;
+        }
+        h3, h5, h6 {
+            color: rgb(0, 91, 228);
+        }
+    </style>
+     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -69,93 +106,46 @@
         </div>
     </nav>
 </div>
-    <div class="container">
-        @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{Session()->get('message')}}
-            </div>
-        @endif
-        @foreach($data as $d)
-            <div class="card mb-3 d-inline-flex flex-column " style="max-width: 540px; margin-top: 50px ;margin-left: 400px">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{asset("images/product/$d->avatar")}}" class="img-fluid rounded-center" alt="..." style="width:500px; height:300px">
+<div class="container py-5">
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ Session()->get('message') }}
+        </div>
+    @endif
+    @foreach($data as $d)
+        <div class="card mb-3">
+            <img src="{{ asset('images/product/' . $d->avatar) }}" class="img-fluid card-img-top" alt="{{ $d->name }}">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ $d->name }}</h5>
+                <p class="card-text">{{ $d->description }}</p>
+                <h3>{{ $d->price }} dh</h3>
+                <!-- Add to cart -->
+                <form action="{{ route('client.addcart', $d->id) }}" method="post">
+                    @csrf
+                    <div class="d-flex justify-content-center mb-2">
+                        <input type="number" value="1" required class="form-control me-2" style="width: 70px;" min="1" name="qte">
+                        <select class="form-select" name="color" style="width: auto;">
+                            <option value="#" disabled selected>Choose color</option>
+                            <option value="noir">Noir</option>
+                            <option value="blanc">Blanc</option>
+                            <option value="rouge">Rouge</option>
+                            <option value="blue">Blue</option>
+                        </select>
                     </div>
-                    <div class="col-md-8" >
-                        <div class="card-body">
-                            <h3 class="card-title">{{$d->name}}</h3>
-                            <h6 class="card-title text-body">{{$d->marke}}</h6>
-                            <p class="card-text">{{$d->description}}</p>
-                            <h5 class="card-text">{{$d->size}}</h5>
-                            <p class="card-text text-start mt-4"><small class="text-body-secondary ">{{$d->price}} dh</small></p>
-
-                            <!--add to cart-->
-                            <form action="{{route('client.addcart',$d->id)}}" method="post">
-                            @csrf
-                                <div class="col-5 mt-4">
-                                <input style="width:100px;" type="number" value="1" required class="form-conxtrol" min="1" name="qte">
-                                <select class="form-select mt-2" name="color" id="">
-                                    <option value="#" disabled selected>choise color</option>
-                                    <option value="noir">Noir</option>
-                                    <option value="blanc">Blanc</option>
-                                    <option value="rouge">Rouge</option>
-                                    <option value="blue">Blue</option>
-                                </select>
-                                @if(Session::has('status'))
-                                        <div class="alert alert-danger mt-2" style="width: 300px">
-                                            {{Session('status')}}
-                                        </div>
-                                    @endif
-                            </div>
-                            <div class="row pt-3">
-                                <div class="col-2"><button class="btn btn-primary" type="submit" style="margin-left: 140px;">Commander</button></div>
-                                <div class="col-2"><a class="btn btn-danger" href="{{route('client.index')}}">Annuler</a></div>
-                            </div>
-                            </form>
+                    @if(Session::has('status'))
+                        <div class="alert alert-danger mt-2" style="width: 300px">
+                            {{ Session('status') }}
                         </div>
-                    </div>
-                </div>
+                    @endif
+                    <button class="btn btn-primary" type="submit">Commander</button>
+                    <a class="btn btn-danger" href="{{ route('client.index') }}">Annuler</a>
+                </form>
             </div>
-        @endforeach
-
-    </div>
+        </div>
+    @endforeach
+</div>
     <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5 px-lg-5">
-            <div class="row g-5">
-                {{--            <div class="col-md-6 col-lg-3">--}}
-                {{--                <p class="section-title text-white h5 mb-4">Address<span></span></p>--}}
-                {{--                <p><i class="fa fa-map-marker-alt me-3"></i>123 bla, bla bla, Maroc</p>--}}
-                {{--                <p><i class="fa fa-phone-alt me-3"></i>+212 045 58989</p>--}}
-                {{--                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>--}}
-                {{--                <div class="d-flex pt-2">--}}
-                {{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>--}}
-                {{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>--}}
-                {{--                </div>--}}
-                {{--            </div>--}}
-                {{--            <div class="col-md-6 col-lg-3">--}}
-                {{--                <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>--}}
-                {{--                <a class="btn btn-link" href="#Accueil">Accueil</a>--}}
-                {{--                <a class="btn btn-link" href="#À-propos">À-propos</a>--}}
-                {{--                <a class="btn btn-link" href="#Contactez-nous">Contactez-nous</a>--}}
-                {{--                <a class="btn btn-link" href="#">Support</a>--}}
-                {{--            </div>--}}
-                {{--                    <div class="col-md-6 col-lg-3">--}}
-                {{--                        <p class="section-title text-white h5 mb-4">Community<span></span></p>--}}
-                {{--                        <a class="btn btn-link" href="">Career</a>--}}
-                {{--                        <a class="btn btn-link" href="">Leadership</a>--}}
-                {{--                        <a class="btn btn-link" href="">Strategy</a>--}}
-                {{--                        <a class="btn btn-link" href="">History</a>--}}
-                {{--                        <a class="btn btn-link" href="">Components</a>--}}
-                {{--                    </div>--}}
-                {{--                    <div class="col-md-6 col-lg-3">--}}
-                {{--                        <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>--}}
-                {{--                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>--}}
-                {{--                        <div class="position-relative w-100 mt-3">--}}
-                {{--                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">--}}
-                {{--                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-            </div>
         </div>
         <div class="container px-lg-5">
             <div class="copyright">

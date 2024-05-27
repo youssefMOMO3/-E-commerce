@@ -63,7 +63,7 @@
                         <a href="#Contactez-nous" class="nav-item nav-link">Contactez-nous</a>
                     </div>
                     @if(Auth::check())
-                        <a href="{{url("/".Auth::user()->role."/dashbord")}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Home</a>
+                        <a href="{{url("/".Auth::user()->role."/dashbord")}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Commencez</a>
                     @else
                         <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
                         <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
@@ -158,7 +158,7 @@
 
 
         <!-- Overview Start -->
-{{--        <div class="container-xxl bg-light my-6 py-5" id="overview">--}}
+       <div class="container-xxl bg-light my-6 py-5" id="overview">--}}
 {{--            <div class="container">--}}
 {{--                <div class="row g-5 py-5 align-items-center">--}}
 {{--                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">--}}
@@ -209,7 +209,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-{{--        </div>--}}
+{{--        </div>
         <!-- Overview End -->
 
 
