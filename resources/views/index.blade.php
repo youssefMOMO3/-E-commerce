@@ -31,7 +31,7 @@
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
 
     {{-- title icon --}}
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
+    <link rel="icon" type="image/png" href="https://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png"/>
 </head>
 
 <body>
@@ -472,7 +472,7 @@
                             </div>
                             <div class="ms-3">
                                 <p class="mb-2">Envoyez-nous un e-mail</p>
-                                <h5 class="mb-0">youssef.berrissoul@usmba.ac.ma</h5>
+                                <h5 class="mb-0">nestle@ma.nestle.com</h5>
                             </div>
                         </div>
                         <div class="d-flex mb-0">
@@ -539,7 +539,7 @@
                         <p class="section-title text-white h5 mb-4">Address<span></span></p>
                         <p><i class="fa fa-map-marker-alt me-3"></i>6G76+57X,El Jadida,Maroc</p>
                         <p><i class="fa fa-phone-alt me-3"></i>+212 06 30 38 81 37</p>
-                        <p><i class="fa fa-envelope me-3"></i>youssef@ma.nestle.com</p>
+                        <p><i class="fa fa-envelope me-3"></i>nestle@ma.nestle.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>

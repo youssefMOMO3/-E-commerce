@@ -106,43 +106,95 @@
         </div>
     </nav>
 </div>
-<div class="container py-5">
-    @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ Session()->get('message') }}
-        </div>
-    @endif
+<style>
+    .detail-img-container {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .detail-img-container img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    .details-body {
+        padding: 1rem;
+    }
+    
+    .detail-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .detail-description {
+        margin-bottom: 1.5rem;
+    }
+    
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .btn:hover {
+        transform: scale(1.05);
+    }
+    
+    .alert {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    </style>
+    
     @foreach($data as $d)
-        <div class="card mb-3">
-            <img src="{{ asset('images/product/' . $d->avatar) }}" class="img-fluid card-img-top" alt="{{ $d->name }}">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{ $d->name }}</h5>
-                <p class="card-text">{{ $d->description }}</p>
-                <h3>{{ $d->price }} dh</h3>
-                <!-- Add to cart -->
-                <form action="{{ route('client.addcart', $d->id) }}" method="post">
-                    @csrf
-                    <div class="d-flex justify-content-center mb-2">
-                        <input type="number" value="1" required class="form-control me-2" style="width: 70px;" min="1" name="qte">
-                        <select class="form-select" name="color" style="width: auto;">
-                            <option value="#" disabled selected>Choose color</option>
-                            <option value="noir">Noir</option>
-                            <option value="blanc">Blanc</option>
-                            <option value="rouge">Rouge</option>
-                            <option value="blue">Blue</option>
-                        </select>
+        <div class="container mb-5">
+            <div class="row align-items-center bg-white shadow p-3 rounded">
+                <div class="col-md-6">
+                    <div class="detail-img-container mb-3">
+                        <img src="{{ asset('images/product/' . $d->avatar) }}" class="img-fluid" alt="{{ $d->name }}">
                     </div>
-                    @if(Session::has('status'))
-                        <div class="alert alert-danger mt-2" style="width: 300px">
-                            {{ Session('status') }}
-                        </div>
-                    @endif
-                    <button class="btn btn-primary" type="submit">Commander</button>
-                    <a class="btn btn-danger" href="{{ route('client.index') }}">Annuler</a>
-                </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="details-body text-center text-md-left">
+                        <h1 class="detail-title">{{ $d->name }}</h1>
+                        <br>
+                        <p class="detail-description">{{ $d->description }}</p>
+                        <h3 class="text-primary">{{ $d->price }} DH</h3>
+                        <form action="{{ route('client.addcart', $d->id) }}" method="post">
+                            @csrf
+                         <div class="d-flex justify-content-center gap-5 mb-3">
+                            <input type="number" value="1" required class="form-control me-2" style="width: 70px;" min="1" name="qte">
+                            <select class="form-select" name="color" required style="width: auto;">
+                                <option value="" disabled selected>Choose the size</option>
+                                <option value="noir">S</option>
+                                <option value="blanc">M</option>
+                                <option value="rouge">L</option>
+                            </select>
+                        </div>
+                            @if(Session::has('status'))
+                                <div class="alert alert-danger mt-2" style="max-width: 300px;">
+                                    {{ Session('status') }}
+                                </div>
+                            @endif
+                            <hr>
+                            <button class="btn btn-primary me-2" type="submit">Commander</button>
+                        
+                            <a class="btn btn-secondary" href="{{ route('client.index') }}">Annuler</a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     @endforeach
+    
+
 </div>
     <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5 px-lg-5">

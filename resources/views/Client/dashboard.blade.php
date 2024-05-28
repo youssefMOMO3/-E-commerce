@@ -124,36 +124,95 @@
 </div>
 
 <!--Product-->
-
-
+<style>
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-img-container {
+        width: 100%;
+        height: 400px; /* Adjust the height as needed */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .card-img-container img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Ensure the image scales proportionally */
+    }
+    
+    .card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+    
+    .card-text {
+        flex-grow: 1;
+    }
+    
+    .card-body .price-and-button {
+        margin-top: 1rem;
+        text-align: center;
+    }
+    
+    .card-body .price-and-button h5 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .btn:hover {
+        transform: scale(1.05);
+    }
+    </style>
+    
     <div class="container py-5">
         {{-- <h1 class="text-center">Popular Dishes</h1> --}}
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
             @foreach($product as $p)
                 <div class="col">
-                    <div class="card">
-                        <img src="{{ asset('images/product/' . $p->avatar) }}" class="card-img-top" alt="{{ $p->name }}">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">{{ $p->name }}</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos accusantium amet similique velit iste.</p>
+                    <div class="card h-100">
+                        <div class="card-img-container">
+                            <img src="{{ asset('images/product/' . $p->avatar) }}" class="card-img-top" alt="{{ $p->name }}">
                         </div>
-                        <div class="mb-5 d-flex justify-content-around">
-                            <h3>190$</h3>
-                            <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary">Voir Plus</a>
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title text-center">{{ $p->name }}</h2>
+                            <p class="card-text">{{ $p->description }}</p>
+                            <div class="price-and-button mt-auto">
+                                <h5 class="text-primary">{{ $p->price }} DH</h5>
+                                <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary mt-3">Voir Plus</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-
+    
     @if (session('status'))
         <div class="alert alert-warning" role="alert">
             {{ session('status') }}
         </div>
     @endif
-
-
+    
 
 
 <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
