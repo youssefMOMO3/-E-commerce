@@ -8,34 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <style>
-        body {
-            background-color: #f9f6f2;
-        }
-        .card-img-top {
-            border-radius: 50px;
-            padding: 20px;
-        }
-        .card {
-            border-radius: 30px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-        }
-        .card-body {
-            padding: 25px;
-            margin-top: -15px;
-        }
-        .btn-primary {
-            border-radius: 50px;
-            width: 120px;
-        }
-        .btn-primary:hover {
-            background-color: black;
-            border: none;
-        }
-        h3, h5 {
-            color: rgb(0, 91, 228);
-        }
-    </style>
+
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -112,8 +85,10 @@
     <div class="container-fluid position-absolute p-5">
         <form class="d-flex"  action="{{route('client.rechercher')}}" method="get">
             @csrf
-            <input class="form-control" type="search" name="search" placeholder="Search" style="width: 400px">
-{{--            <button class="btn btn-outline-success" type="submit">Search</button>--}}
+            <input  class="form-control me-2" type="search" name="search" placeholder="Search" style="width: 400px">
+            <button class="btn btn-outline-success" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
         </form>
         @if (session('status'))
             <div class="alert alert-warning" role="alert">
@@ -125,82 +100,105 @@
 
 <!--Product-->
 <style>
-    .card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-    
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    
-    .card-img-container {
-        width: 100%;
-        height: 400px; /* Adjust the height as needed */
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .card-img-container img {
-        width: 100%;
-        height: auto;
-        object-fit: contain; /* Ensure the image scales proportionally */
-    }
-    
-    .card h2 {
-        font-size: 1.5rem;
-    }
-    
-    .card-body {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-    }
-    
-    .card-text {
-        flex-grow: 1;
-    }
-    
-    .card-body .price-and-button {
-        margin-top: 1rem;
-        text-align: center;
-    }
-    
-    .card-body .price-and-button h5 {
-        margin-bottom: 0.5rem;
-    }
-    
-    .btn {
-        transition: transform 0.3s ease-in-out;
-    }
-    
-    .btn:hover {
-        transform: scale(1.05);
-    }
+  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.container {
+  display: flex;
+  width: 1040px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.card {
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: white;
+}
+
+.card-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.tag {
+  background: white;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tag-teal {
+  background-color: #47bcd4;
+}
+
+.tag-purple {
+  background-color: #5e76bf;
+}
+
+.tag-pink {
+  background-color: #cd5b9f;
+}
+
+.card-body h4 {
+  font-size: 1.5rem;
+}
+
+.card-body p {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+
+
     </style>
-    
+    <br>
+    <br>
+    <br>
     <div class="container py-5">
-        {{-- <h1 class="text-center">Popular Dishes</h1> --}}
-        <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+        <div class="container">
             @foreach($product as $p)
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-img-container">
-                            <img src="{{ asset('images/product/' . $p->avatar) }}" class="card-img-top" alt="{{ $p->name }}">
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h2 class="card-title text-center">{{ $p->name }}</h2>
-                            <p class="card-text">{{ $p->description }}</p>
-                            <div class="price-and-button mt-auto">
-                                <h5 class="text-primary">{{ $p->price }} DH</h5>
-                                <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary mt-3">Voir Plus</a>
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-header">
+                        <img src="{{ asset('images/product/' . $p->avatar) }}" alt="{{ $p->name }}" />
+                    </div>
+                    <div class="card-body">
+                        <span class="tag tag-purple">{{ $p->marke }}</span>
+                        <br>
+                        <h4>{{ $p->name }}</h4>
+                        <p>{{ $p->description }}</p>
+                        <h5 class="text-primary">{{ $p->price }} DH</h5>
+                        <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary mt-3">Voir Plus</a>
                     </div>
                 </div>
             @endforeach
@@ -213,7 +211,6 @@
         </div>
     @endif
     
-
 
 <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
     <div class="container px-lg-5">

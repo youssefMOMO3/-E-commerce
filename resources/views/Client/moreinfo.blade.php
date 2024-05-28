@@ -16,38 +16,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
     {{-- <link href="{{asset('css/card.css')}}" rel="stylesheet"> --}}
-    <style>
-        body {
-            background-color: #f9f6f2;
-        }
-        .card-img-top, .img-fluid {
-            border-radius: 50px;
-            padding: 20px;
-            object-fit: cover;
-            width: 100%;
-            height: 300px; /* Set a fixed height for the image */
-        }
-        .card {
-            border-radius: 30px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-            max-width: 350px; /* Adjust width to match example */
-            margin: auto; /* Center the card */
-        }
-        .card-body {
-            padding: 25px;
-            margin-top: -15px;
-        }
-        .btn-primary {
-            border-radius: 50px;
-            width: 120px;
-        }
-        .btn-primary:hover {
-            background-color: black;
-            border: none;
-        }
-        h3, h5, h6 {
-            color: rgb(0, 91, 228);
-        }
+    
     </style>
      <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +85,7 @@
     }
     
     .detail-img-container img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
         object-fit: contain;
     }
@@ -150,55 +119,48 @@
         max-width: 300px;
         margin: 0 auto;
     }
-    
-    </style>
-    
-    @foreach($data as $d)
-        <div class="container mb-5">
-            <div class="row align-items-center bg-white shadow p-3 rounded">
-                <div class="col-md-6">
-                    <div class="detail-img-container mb-3">
-                        <img src="{{ asset('images/product/' . $d->avatar) }}" class="img-fluid" alt="{{ $d->name }}">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="details-body text-center text-md-left">
-                        <h1 class="detail-title">{{ $d->name }}</h1>
-                        <br>
-                        <p class="detail-description">{{ $d->description }}</p>
-                        <h3 class="text-primary">{{ $d->price }} DH</h3>
-                        <form action="{{ route('client.addcart', $d->id) }}" method="post">
-                            @csrf
-                         <div class="d-flex justify-content-center gap-5 mb-3">
-                            <input type="number" value="1" required class="form-control me-2" style="width: 70px;" min="1" name="qte">
-                            <select class="form-select" name="color" required style="width: auto;">
-                                <option value="" disabled selected>Choose the size</option>
-                                <option value="noir">S</option>
-                                <option value="blanc">M</option>
-                                <option value="rouge">L</option>
-                            </select>
-                        </div>
-                            @if(Session::has('status'))
-                                <div class="alert alert-danger mt-2" style="max-width: 300px;">
-                                    {{ Session('status') }}
-                                </div>
-                            @endif
-                            <hr>
-                            <button class="btn btn-primary me-2" type="submit">Commander</button>
-                        
-                            <a class="btn btn-secondary" href="{{ route('client.index') }}">Annuler</a>
-                        </form>
-                    </div>
-                </div>
+</style>@foreach($data as $d)
+<div class="container mb-5">
+    <div class="row align-items-center bg-white shadow p-3 rounded">
+        <div class="col-md-6">
+            <div class="detail-img-container mb-3">
+                <img src="{{ asset('images/product/' . $d->avatar) }}" class="img-fluid" alt="{{ $d->name }}">
             </div>
         </div>
-    @endforeach
-    
+        <div class="col-md-6">
+            <div class="details-body text-center text-md-left">
+                <h1 class="detail-title">{{ $d->name }}</h1>
+                <br>
+                <p class="detail-description">{{ $d->description }}</p>
+                <h3 class="text-primary">{{ $d->price }} DH</h3>
+                <form action="{{ route('client.addcart', $d->id) }}" method="post">
+                    @csrf
+                    <div class="d-flex justify-content-center gap-5 mb-3">
+                        <input type="number" value="1" required class="form-control me-2" style="width: 70px;" min="1" name="qte">
+                        <select class="form-select" name="color" required style="width: auto;">
+                            <option value="" disabled selected>Choose the size</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
+                    </div>
+                    @if(Session::has('status'))
+                        <div class="alert alert-danger mt-2">
+                            {{ Session('status') }}
+                        </div>
+                    @endif
+                    <hr>
+                    <button class="btn btn-primary me-2" type="submit">Commander</button>
+                    <a class="btn btn-secondary" href="{{ route('client.index') }}">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
 </div>
     <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5 px-lg-5">
-        </div>
         <div class="container px-lg-5">
             <div class="copyright">
                 <div class="row">
