@@ -59,7 +59,7 @@
 
         </div>
     </nav>
-</div>
+</div>  
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
@@ -81,7 +81,7 @@
             </nav>
             <table class="table mt-5">
                 <tr style="text-align: center">
-                    <th>#</th>
+                    <th>Id</th>
                     <th>Nom</th>
                     <th>Couleur</th>
                     <th>Qte</th>

@@ -52,9 +52,18 @@
             <textarea name="description" class="form-control" aria-label="With textarea" placeholder="description"></textarea>
         </div>
         <div class="col-5">
-            <label class="form-label">La Marque</label>
-          <input type="text" name="marke" class="form-control" placeholder="Marke">
-        </div>
+          <label class="form-label">Categorie</label>
+          <select name="marke" class="form-select">
+              <option value="" disabled selected>Choose category</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Coffee">Coffee</option>
+              <option value="CPW">CPW</option>
+              <option value="Nutrition">Nutrition</option>
+              <option value="Confiserie">Confiserie</option>
+              <option value="Culinaire">Culinaire</option>
+          </select>
+      </div>
+      
     </div>
     <div class="row pt-4" style="margin-left: 156px">
         <div class="col">

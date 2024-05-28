@@ -8,7 +8,35 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
+    <style>
+        body {
+            background-color: #f9f6f2;
+        }
+        .card-img-top {
+            border-radius: 50px;
+            padding: 20px;
+        }
+        .card {
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+        }
+        .card-body {
+            padding: 25px;
+            margin-top: -15px;
+        }
+        .btn-primary {
+            border-radius: 50px;
+            width: 120px;
+        }
+        .btn-primary:hover {
+            background-color: black;
+            border: none;
+        }
+        h3, h5 {
+            color: rgb(0, 91, 228);
+        }
+    </style>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -71,7 +99,7 @@
                 <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
             @endif
 
-            <a href="{{route('client.card')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+            <a href="{{route('client.monCmd')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
                 <i class="bi bi-cart-fill"></i>
                 Panier
             </a>

@@ -8,9 +8,10 @@
 <table class="table">
     <thead style="text-align: center">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th >avatar</th>
         <th scope="col">nom</th>
+        <th scope="col">Categorie</th>
         <th scope="col">prix</th>
         <th scope="col">Qte</th>
         <th scope="col">Action</th>
@@ -22,6 +23,7 @@
         <th scope="row">{{$row->id}}</th>
         <td><img src='{{asset("images/product/$row->avatar")}}' class="img-thumbnail text-center" style="width: 70px; height:70px;"></td>
         <td>{{$row->name}}</td>
+        <td>{{$row->marke}}</td>
         <td>{{$row->price}}/dh</td>
         <td>@if($row->Qte >0)
               {{$row->Qte}}

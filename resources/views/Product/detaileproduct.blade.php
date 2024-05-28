@@ -30,8 +30,8 @@
     <div class="col-md-7">
     <img src='{{asset("images/product/$data->avatar")}}' alt="project-image" class="rounded">
     <div class="project-info-box">
-    <p><b>Marke:</b> {{$data->marke}}</p>
-    <p><b>Identifiant:</b> {{$data->id}}</p>
+    <p><b>Categorie :</b> {{$data->marke}}</p>
+    <p><b>Identifiant :</b> {{$data->id}}</p>
     </div>
     </div>
     </div>

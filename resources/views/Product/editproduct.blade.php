@@ -42,13 +42,22 @@
             <textarea name="description" class="form-control" aria-label="With textarea" placeholder="description">{{old('description',$data->description)}}</textarea>
         </div>
         <div class="col-5">
-            <label>La Marque</label>
-          <input type="text" name="marke" value="{{old('marke',$data->marke)}}" class="form-control" placeholder="Marke">
-        </div>
+          <label for="marke" class="form-label">Categorie</label>
+          <select name="marke" id="marke" class="form-select">
+              <option value="" disabled {{ old('marke', $data->marke) == '' ? 'selected' : '' }}>Choose category</option>
+              <option value="Dairy" {{ old('marke', $data->marke) == 'Dairy' ? 'selected' : '' }}>Dairy</option>
+              <option value="Coffee" {{ old('marke', $data->marke) == 'Coffee' ? 'selected' : '' }}>Coffee</option>
+              <option value="CPW" {{ old('marke', $data->marke) == 'CPW' ? 'selected' : '' }}>CPW</option>
+              <option value="Nutrition" {{ old('marke', $data->marke) == 'Nutrition' ? 'selected' : '' }}>Nutrition</option>
+              <option value="Confiserie" {{ old('marke', $data->marke) == 'Confiserie' ? 'selected' : '' }}>Confiserie</option>
+              <option value="Culinaire" {{ old('marke', $data->marke) == 'Culinaire' ? 'selected' : '' }}>Culinaire</option>
+          </select>
+      </div>
+      
     </div>
     <div class="row pt-4" style="margin-left: 156px">
         <div class="col">
-            <input type="submit" class="btn btn-primary" value="Create">
+            <input type="submit" class="btn btn-primary" value="Modifier">
         </div>
     </div>
 

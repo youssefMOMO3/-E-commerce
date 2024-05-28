@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Nestlé | Panier</title>
+    <title>Nestlé | Store</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <style>
+        body {
+            background-color: #f9f6f2;
+        }
+        .card-img-top {
+            border-radius: 50px;
+            padding: 20px;
+        }
+        .card {
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+        }
+        .card-body {
+            padding: 25px;
+            margin-top: -15px;
+        }
+        .btn-primary {
+            border-radius: 50px;
+            width: 120px;
+        }
+        .btn-primary:hover {
+            background-color: black;
+            border: none;
+        }
+        h3, h5 {
+            color: rgb(0, 91, 228);
+        }
+    </style>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <!-- Favicon -->
     <link href="{{asset('img/favicon.ico')}}" rel="icon">
@@ -31,36 +66,47 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
 
+    <link href="{{asset('css/card.css')}}" rel="stylesheet">
+
     {{-- title icon --}}
     <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
 </head>
 <body>
-    <!--Header-->
-    <div class="container-fluid position-fixed p-5" id="home">
-        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #064c4c">
-            <a href="/" class="navbar-brand p-0">
-                <h1 class="m-0">Nestlé Shop</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
-            </a>
-            <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav mx-auto py-0">
-                    <a href="#Accueil" class="nav-item nav-link active"></a>
-                    <a href="#À-propos" class="nav-item nav-link"></a>
-                    <a href="#Contactez-nous" class="nav-item nav-link"></a>
-                </div>
+<div class="container-fluid position-relative p-5" id="home">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #0c9eec">
+        <a href="/" class="navbar-brand p-0">
+            <h1 class="m-0">Nestlé Shop</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto py-0">
+                <a href="#Accueil" class="nav-item nav-link active"></a>
+                <a href="#À-propos" class="nav-item nav-link"></a>
+                <a href="#Contactez-nous" class="nav-item nav-link"></a>
+            </div>
+            @if(Auth::check())
                 <a href="{{route('logout')}}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();"
                    class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
+            @else
+                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
+                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
+            @endif
 
-            </div>
-        </nav>
-    </div>
+            {{-- <a href="{{route('client.index')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+                Retour
+            </a>         --}}
+        </div>
+    </nav>
+</div>
+<body>
+
 
     <div class="container-fluid container-responsive">
         <div class="card" style="margin-left: 12px;margin-right: 10px">
@@ -102,7 +148,7 @@
         </div>
 
             <button type="submit" style="margin-left: 620px;width: 250px" class="btn btn-success mt-4">confirmer</button>
-            <a href="{{ route('client.monCmd') }}" class="btn btn-primary mt-4">Suivi De Commande</a>
+            {{-- <a href="{{ route('client.monCmd') }}" class="btn btn-primary mt-4">Suivi De Commande</a> --}}
         </form>
     </div>
 
