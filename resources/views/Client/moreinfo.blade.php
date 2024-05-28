@@ -68,14 +68,15 @@
                 <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Register</a>
             @endif
 
-            <a href="{{route('client.card')}}" class="btn btn-warning" style="margin-left: 8px;text-decoration: none">
-                <i class="bi bi-basket-fill"></i>
+            <a href="{{route('client.monCmd')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+                <i class="bi bi-cart-fill"></i>
                 Panier
             </a>
+            
         </div>
     </nav>
 </div>
-<style>
+{{-- <style>
     .detail-img-container {
         width: 100%;
         overflow: hidden;
@@ -157,7 +158,151 @@
         </div>
     </div>
 </div>
-@endforeach
+@endforeach --}}
+
+
+
+<style>
+    /* Container for the entire card */
+    .card-container {
+    max-width: 800px; /* Ensure a max-width for better design */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+    
+    /* Container for the image */
+    .detail-img-container {
+        flex: 1 1 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 10px;
+    }
+    
+    /* Image styles */
+    .detail-img-container img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
+    /* Container for the details */
+    .details-body {
+        flex: 1 1 50%;
+        padding: 20px;
+    }
+    
+    /* Title styles */
+    .detail-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    
+    /* Description styles */
+    .detail-description {
+        margin-bottom: 20px;
+        color: #555;
+    }
+    
+    /* Price styles */
+    h3 {
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+    
+    /* Button styles */
+    .btn {
+        transition: transform 0.3s ease-in-out;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+    }
+    
+    .btn:hover {
+        transform: scale(1.05);
+    }
+    
+    .alert {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #dc3545;
+    }
+    
+    .form-control, .form-select {
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: none;
+    }
+    </style>
+    @foreach($data as $d)
+        <div class="card-container">
+            <div class="detail-img-container">
+                <img src="{{ asset('images/product/' . $d->avatar) }}" alt="{{ $d->name }}">
+            </div>
+            <div class="details-body">
+                <h1 style="text-align: center;"  class="detail-title">{{ $d->name }}</h1>
+                
+                {{-- <h8>{{ $d->marke }}</h8> --}}
+                
+                <p style="text-align: center;"  class="detail-description">{{ $d->description }}</p>
+                <hr>
+                <h3>{{ $d->price }} DH</h3>
+                <form action="{{ route('client.addcart', $d->id) }}" method="post">
+                    @csrf
+                    <div class="d-flex justify-content-start align-items-center mb-3">
+                        <input type="number" value="1" required class="form-control" min="1" name="qte">
+                        <select class="form-select" name="color" required>
+                            <option value="" disabled selected>Choose the size</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
+                    </div>
+                    @if(Session::has('status'))
+                        <div class="alert mt-2">
+                            {{ Session('status') }}
+                        </div>
+                    @endif
+                    
+                    <button class="btn btn-primary" type="submit">Commander</button>
+                    <a class="btn btn-secondary" href="{{ route('client.index') }}">Annuler</a>
+                    <hr>
+                </form>
+            </div>
+        </div>
+    @endforeach
+    
 
 </div>
     <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
