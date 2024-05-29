@@ -135,7 +135,7 @@
                         <td><input type="text" name="color[]" value="{{$c->color}}" style="border: none;text-align: center ;width:50px" readonly></td>
                         <td><input type="text" name="qte[]" value="{{$c->qte}}" style="border: none;text-align: center" readonly> </td>
                         <td><input type="text" name="price[]" value="{{$c->qte * $c->price}}$" readonly style="border: none;text-align: center"></td>
-                        <td>
+                        <td class="d-flex gap-2">
                             <a href="{{route('client.delete',$c->id)}}" class="btn btn-danger">supprimer</a>
                             <a href="{{route('client.modifer',$c->id)}}" class="btn btn-primary">modifer</a>
                         </td>
