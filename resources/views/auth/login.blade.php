@@ -51,12 +51,12 @@
                                         <b>{{ __('Se souvenir de moi') }}</b>
                                     </label>
                                 </div>
-                                <!--begin::Link-->
-                                <a href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">Mot de passe oublié ?</a>
-                                <!--end::Link-->
                             </div>
+                              <!--begin::Link-->
+                              <a  href="{{ route('password.request') }}" class="link-primary fs-6 fw-bolder">Mot de passe oublié ?</a>
+                              <!--end::Link-->
 
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Se connecter</button>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4 mt-4">Se connecter</button>
                         </form>
                         <hr>
                         <p class="text-center mb-0">Vous n'avez pas de compte ? <a href="{{route("register")}}">S'inscrire</a></p>

@@ -52,7 +52,7 @@
 
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <a href="{{url("/")}}" class="">
-                            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>PhoneX</h3>
+                            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Nestlé Shop</h3>
                         </a>
                         <h3>Enter Your new Password</h3>
                     </div>
