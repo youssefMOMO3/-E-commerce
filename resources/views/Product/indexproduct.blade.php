@@ -2,7 +2,10 @@
 
 @section('content')
 
-<a href="{{route('Produits.create')}}" class="btn btn-primary"> Add product</a>
+<a href="{{ route('Produits.create') }}" class="btn btn-primary">
+  Ajouter <i class="fas fa-shopping-cart"></i>
+</a>
+
 
 
 <table class="table">

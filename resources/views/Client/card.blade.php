@@ -111,17 +111,18 @@
     <div class="container-fluid container-responsive">
         <div class="card" style="margin-left: 12px;margin-right: 10px">
             <div class="card-header">
-                <a class="btn btn-danger" href="{{route('client.index')}}">Retour</a>
+                <a href="{{ route('client.index')}}" class="btn btn-danger">
+                    <i class="fas fa-arrow-left"></i> 
+                </a>
             </div>
             <table class="table table-responsive">
                 <tr style="text-align: center">
-                    <th>Produit</th>
-                    <th>marke</th>
-                    <th>Size</th>
-                    <th>Couleur</th>
-                    <th>qte</th>
+                    <th>Produit</th> 
+                    <th>Categorie</th>
+                    <th>Taille</th>
+                    <th>Quantité</th>
                     <th>Prix total</th>
-                    <th>Actions</th>
+                    <th>Actions</th>                   
                 </tr>
                 <form method="post" action="{{route('client.confirme')}}">
                     @csrf
@@ -131,10 +132,9 @@
                         <td><input  type="text" name="product_title[]" value="{{$c->product_title}}" style="border: none;text-align: center" >
                             </td>
                         <td><input type="text" name="marke[]" value="{{$c->marke}}" style="border: none;text-align: center" readonly></td>
-                        <td><input type="text" name="size[]" value="{{$c->size}}" style="border: none;text-align: center" readonly></td>
                         <td><input type="text" name="color[]" value="{{$c->color}}" style="border: none;text-align: center ;width:50px" readonly></td>
                         <td><input type="text" name="qte[]" value="{{$c->qte}}" style="border: none;text-align: center" readonly> </td>
-                        <td><input type="text" name="price[]" value="{{$c->qte * $c->price}}$" readonly style="border: none;text-align: center"></td>
+                        <td><input type="text" name="price[]" value="{{$c->qte * $c->price}}DH" readonly style="border: none;text-align: center"></td>
                         <td class="d-flex gap-2">
                             <a href="{{route('client.delete',$c->id)}}" class="btn btn-danger">supprimer</a>
                             <a href="{{route('client.modifer',$c->id)}}" class="btn btn-primary">modifer</a>

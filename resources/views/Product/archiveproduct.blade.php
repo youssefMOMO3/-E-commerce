@@ -8,7 +8,7 @@
 <table class="table mt-2">
     <thead style="text-align: center">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th >avatar</th>
         <th scope="col">nom</th>
         <th scope="col">prix</th>

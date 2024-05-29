@@ -43,6 +43,154 @@
 
     {{-- title icon --}}
     <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
+
+    <style>
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-input {
+            width: 400px;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        
+        .search-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #218838;
+        }
+        
+        .search-button i {
+            font-size: 16px;
+        }
+        
+          @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+        
+        .container {
+          display: flex;
+          width: 1040px;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+        }
+        .card {
+          margin: 10px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+          overflow: hidden;
+          width: 300px;
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+          width: 100%;
+          height: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          background: white;
+        }
+        
+        .card-header img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 20px;
+          min-height: 250px;
+        }
+        
+        .tag {
+          background: white;
+          border-radius: 50px;
+          font-size: 12px;
+          margin: 0;
+          color: #fff;
+          padding: 2px 10px;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+        
+        
+            .tag-red {
+          background-color: #e74c3c;
+        }
+        
+        .tag-blue {
+          background-color: #3498db;
+        }
+        
+        .tag-green {
+          background-color: #2ecc71;
+        }
+        
+        .tag-orange {
+          background-color: #e67e22;
+        }
+        
+        .tag-yellow {
+          background-color: #f1c40f;
+        }
+        
+        .tag-teal {
+          background-color: #47bcd4;
+        }
+        
+        .tag-purple {
+          background-color: #5e76bf;
+        }
+        
+        .tag-pink {
+          background-color: #cd5b9f;
+        }
+        
+        .card-body h4 {
+          font-size: 1.5rem;
+        }
+        
+        .card-body p {
+          font-size: 13px;
+          margin: 0 0 40px;
+        }
+        
+        
+            </style>
 </head>
 <body>
 <div class="container-fluid position-relative p-5" id="home">
@@ -83,13 +231,13 @@
 <!--search-->
 <div class="navbar bg-body-tertiary" style="margin-top: 120px">
     <div class="container-fluid position-absolute p-5">
-        <form class="d-flex"  action="{{route('client.rechercher')}}" method="get">
+        <form class="search-form" action="{{route('client.rechercher')}}" method="get">
             @csrf
-            <input  class="form-control me-2" type="search" name="search" placeholder="Search" style="width: 400px">
-            <button class="btn btn-outline-success" type="submit">
+            <input class="search-input" type="search" name="search" placeholder="Rechercher...">
+            <button class="search-button" type="submit">
                 <i class="fas fa-search"></i>
-              </button>
-        </form>
+            </button>
+        </form>        
         @if (session('status'))
             <div class="alert alert-warning" role="alert">
                 {{ session('status') }}
@@ -99,118 +247,62 @@
 </div>
 
 <!--Product-->
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-
-.container {
-  display: flex;
-  width: 1040px;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-.card {
-  margin: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 300px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-header {
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: white;
-}
-
-.card-header img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  min-height: 250px;
-}
-
-.tag {
-  background: white;
-  border-radius: 50px;
-  font-size: 12px;
-  margin: 0;
-  color: #fff;
-  padding: 2px 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.tag-teal {
-  background-color: #47bcd4;
-}
-
-.tag-purple {
-  background-color: #5e76bf;
-}
-
-.tag-pink {
-  background-color: #cd5b9f;
-}
-
-.card-body h4 {
-  font-size: 1.5rem;
-}
-
-.card-body p {
-  font-size: 13px;
-  margin: 0 0 40px;
-}
-
-
-    </style>
     <br>
     <br>
     <br>
-    <div class="container py-5">
-        <div class="container">
-            @foreach($product as $p)
-                <div class="card">
-                    <div class="card-header">
-                        <img src="{{ asset('images/product/' . $p->avatar) }}" alt="{{ $p->name }}" />
-                    </div>
-                    <div class="card-body">
-                        <span class="tag tag-purple">{{ $p->marke }}</span>
-                        <br>
-                        <h4>{{ $p->name }}</h4>
-                        <p>{{ $p->description }}</p>
-                        <h5 class="text-primary">{{ $p->price }} DH</h5>
-                        <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary mt-3">Voir Plus</a>
-                    </div>
+   <!-- Mettez à jour votre code Blade comme suit -->
+<div class="container py-5">
+    <div class="container">
+        @foreach($product as $p)
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{ asset('images/product/' . $p->avatar) }}" alt="{{ $p->name }}" />
                 </div>
-            @endforeach
-        </div>
+                <div class="card-body">
+                    @php
+                        $tagClass = '';
+                        switch ($p->marke) {
+                            case 'Dairy':
+                                $tagClass = 'tag-red';
+                                break;
+                            case 'Coffee':
+                                $tagClass = 'tag-blue';
+                                break;
+                            case 'CPW':
+                                $tagClass = 'tag-green';
+                                break;
+                            case 'Nutrition':
+                                $tagClass = 'tag-orange';
+                                break;
+                            case 'Confiserie':
+                                $tagClass = 'tag-yellow';
+                                break;
+                            case 'Culinaire':
+                                $tagClass = 'tag-pink';
+                                break;
+                            default:
+                                $tagClass = 'tag-purple'; // Default color
+                        }
+                    @endphp
+                    <span class="tag {{ $tagClass }}">{{ $p->marke }}</span>
+                    <br>
+                    <h4>{{ $p->name }}</h4>
+                    <p>{{ $p->description }}</p>
+                    <h5 class="text-primary">{{ $p->price }} DH</h5>
+                    <a href="{{ route('client.produits', $p->id) }}" class="btn btn-primary mt-3">Voir Plus</a>
+                </div>
+            </div>
+        @endforeach
     </div>
-    
-    @if (session('status'))
-        <div class="alert alert-warning" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-    
+</div>
+
+@if (session('status'))
+    <div class="alert alert-warning" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+
+
  <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s">
         <div class="container px-lg-5">
             <div class="copyright">

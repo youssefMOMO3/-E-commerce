@@ -9,10 +9,56 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <style>
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-input {
+            width: 400px;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        
+        .search-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #218838;
+        }
+        
+        .search-button i {
+            font-size: 16px;
+        }        
+            </style>
     <!-- Favicon -->
     <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,10 +107,14 @@
     </nav>
 </div>
 <div class="container-fluid">
-    <a href="{{ route('client.index')}}" class="btn btn-danger">Retour</a>
+    <a href="{{ route('client.index')}}" class="btn btn-danger">
+        <i class="fas fa-arrow-left"></i> 
+    </a>
+    
     <div class="card" style="margin-top: 15px">
         <div class="card-header">
             <h3 class="text-body mt-2" style="margin-left: 10px">Tableau du Bord</h3>
+            <br>
             
         </div>
         <div class="card-body">
@@ -73,33 +123,34 @@
             <nav class="navbar">
                 <div class="container-fluid mb-3" style="margin-top: 10px">
                     <a class="navbar-brand"></a>
-                    <form class="d-flex" action="{{route('client.cmdsearch')}}" method="get">
+                    <form class="search-form" action="{{route('client.rechercher')}}" method="get">
                         @csrf
-                        <input class="form-control me-2" type="search" placeholder="Search"  name="search">
-                        <button class="btn btn-outline-success" type="submit">
+                        <input class="search-input" type="search" name="search" placeholder="Rechercher...">
+                        <button class="search-button" type="submit">
                             <i class="fas fa-search"></i>
-                          </button>
+                        </button>
                     </form>
+                    
                 </div>
             </nav>
             <table class="table mt-5">
                 <tr style="text-align: center">
                     <th>Id</th>
-                    <th>Nom</th>
-                    <th>Couleur</th>
-                    <th>Qte</th>
+                    <th>Produit</th>
+                    <th>Categorie</th>
+                    <th>Qantité</th>
                     <th>Prix Total</th>
-                    <th>Status De Commande</th>
-                    <th>status De Payement</th>
-                    <th>la Date de livraison</th>
+                    <th>Statut De Commande</th>
+                    <th>Statut De Payement</th>
+                    <th>Date De Livraison</th>
                 </tr>
                 @foreach($data as $c)
                     <tr style="text-align: center">
                         <td>{{$c->id}}</td>
                         <td>{{$c->product_title}}</td>
-                        <td>{{$c->color}}</td>
+                        <td>{{$c->marke}}</td>
                         <td>{{$c->qte}}</td>
-                        <td>{{$c->price}}</td>
+                        <td>{{$c->price}}DH</td>
                         <td>{{$c->statuscmd}}</td>
                         <td>{{$c->statuspay}}</td>
                         <td>@if($c->dateLiv===null)
@@ -118,39 +169,7 @@
 <div class="container-fluid bg-dark text-body footer wow fadeIn" data-wow-delay="0.1s" >
     <div class="container py-5 px-lg-5">
         <div class="row g-5">
-            {{--            <div class="col-md-6 col-lg-3">--}}
-            {{--                <p class="section-title text-white h5 mb-4">Address<span></span></p>--}}
-            {{--                <p><i class="fa fa-map-marker-alt me-3"></i>123 bla, bla bla, Maroc</p>--}}
-            {{--                <p><i class="fa fa-phone-alt me-3"></i>+212 045 58989</p>--}}
-            {{--                <p><i class="fa fa-envelope me-3"></i>info@example.com</p>--}}
-            {{--                <div class="d-flex pt-2">--}}
-            {{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>--}}
-            {{--                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-            {{--            <div class="col-md-6 col-lg-3">--}}
-            {{--                <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>--}}
-            {{--                <a class="btn btn-link" href="#Accueil">Accueil</a>--}}
-            {{--                <a class="btn btn-link" href="#À-propos">À-propos</a>--}}
-            {{--                <a class="btn btn-link" href="#Contactez-nous">Contactez-nous</a>--}}
-            {{--                <a class="btn btn-link" href="#">Support</a>--}}
-            {{--            </div>--}}
-            {{--                    <div class="col-md-6 col-lg-3">--}}
-            {{--                        <p class="section-title text-white h5 mb-4">Community<span></span></p>--}}
-            {{--                        <a class="btn btn-link" href="">Career</a>--}}
-            {{--                        <a class="btn btn-link" href="">Leadership</a>--}}
-            {{--                        <a class="btn btn-link" href="">Strategy</a>--}}
-            {{--                        <a class="btn btn-link" href="">History</a>--}}
-            {{--                        <a class="btn btn-link" href="">Components</a>--}}
-            {{--                    </div>--}}
-            {{--                    <div class="col-md-6 col-lg-3">--}}
-            {{--                        <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>--}}
-            {{--                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>--}}
-            {{--                        <div class="position-relative w-100 mt-3">--}}
-            {{--                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">--}}
-            {{--                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
+    
         </div>
     </div>
     <div class="container px-lg-5">
