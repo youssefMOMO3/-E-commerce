@@ -41,8 +41,8 @@
 
     <link href="{{asset('css/card.css')}}" rel="stylesheet">
 
-    {{-- title icon --}}
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
+      {{-- title icon --}}
+      <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 
     <style>
         .search-form {

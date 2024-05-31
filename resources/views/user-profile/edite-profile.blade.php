@@ -32,8 +32,8 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-    {{-- Icon title --}}
-    <link rel="icon" type="image/png" href="{{asset('img/logo.png')}}"/>
+      {{-- title icon --}}
+      <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"> -->

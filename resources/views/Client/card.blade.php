@@ -8,6 +8,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+      {{-- title icon --}}
+      <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
     <style>
         body {
             background-color: #f9f6f2;
@@ -68,8 +70,6 @@
 
     <link href="{{asset('css/card.css')}}" rel="stylesheet">
 
-    {{-- title icon --}}
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
 </head>
 <body>
 <div class="container-fluid position-relative p-5" id="home">

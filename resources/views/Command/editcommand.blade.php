@@ -9,11 +9,11 @@
           <input type="text" name="name" value="{{old('name',$data->product_title)}}" class="form-control" placeholder="nom du produit">
         </div>
       <div class="col-5">
-          <label class="form-label">phone</label>
+          <label class="form-label">Phone</label>
         <input type="text" name="phone" value="{{old('phone',$data->phone)}}" class="form-control" placeholder="phone">
       </div>
       <div class="col-5" >
-        <label class="form-label">address</label>
+        <label class="form-label">Adresse</label>
         <input type="text" name="adriss" value="{{old('adriss',$data->adriss)}}" class="form-control" placeholder="adriss">
       </div>
       <div class="col-5">
@@ -27,11 +27,11 @@
         
 
           <div class="col-5">
-            <label class="form-label">price</label>
+            <label class="form-label">Prix</label>
             <textarea name="price" class="form-control" aria-label="With textarea" placeholder="price">{{old('price',$data->price)}}</textarea>
           </div>
           <div class="col-5">
-            <label>Status command</label>
+            <label>Statut commande</label>
             <select name="statuscmd" class="form-control">
                 <option>{{old('statuscmd',$data->statuscmd)}}</option>
                 <option >on coure</option>
@@ -43,7 +43,7 @@
     <div class="row pt-5">
         
         <div class="col-5">
-            <label> status payment</label>
+            <label> Statut payment</label>
             <select name="statuspay" class="form-control">
                 <option>{{old('statuspay',$data->statuspay)}}</option>
                 <option >payé</option>
@@ -59,7 +59,7 @@
 
     <div class="row pt-5">
         <div class="col-5">
-            <label>La Marke</label>
+            <label>Categorie</label>
             <input type="text" name="marke" value="{{old('marke',$data->marke)}}" class="form-control" placeholder="Marke">
         </div>
         <div class="col-5">

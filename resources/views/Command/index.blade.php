@@ -9,15 +9,15 @@
     <thead style="text-align: center">
       <tr>
         <th scope="col">Id</th>
-        <th >name</th>
-        <th scope="col">phone</th>
-        <th scope="col">address</th>
-        <th scope="col">qte</th>
-        <th scope="col">price</th>
-        <th scope="col">statuscmd</th>
-        <th scope="col">statuspay</th>
-        <th scope="col">dateLiv</th>
-        <th scope="col">Action</th>
+        <th>Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
+        <th scope="col">Statut Cmd</th>
+        <th scope="col">Statut Pay</th>
+        <th scope="col">Date Livr</th>
+        <th scope="">Action</th>
         
       </tr>
     </thead>
@@ -45,7 +45,7 @@
       
         <td>
           <a href="{{route('Commond.edit',$row->id)}}" class="btn btn-primary">Modifier</a>
-          <a href='{{route("Commond.delete",$row->id)}}' class="btn btn-danger">supprimer</a>
+          <a href='{{route("Commond.delete",$row->id)}}' class="btn btn-danger">Supprimer</a>
          
           </td>
       </tr>

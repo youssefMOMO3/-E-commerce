@@ -31,7 +31,7 @@
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
 
     {{-- title icon --}}
-    <link rel="icon" type="image/png" href="https://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png"/>
+    <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 </head>
 
 <body>

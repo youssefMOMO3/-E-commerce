@@ -33,8 +33,8 @@
     <link href="{{asset("css/style.css")}}" rel="stylesheet">
     <link href="{{asset("css/detail.css")}}" rel="stylesheet">
 
-    {{-- Icon title --}}
-    <link rel="icon" type="image/png" href="{{asset("img/logo.png")}}"/>
+     {{-- title icon --}}
+     <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 </head>
 <body>
 

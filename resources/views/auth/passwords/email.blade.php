@@ -29,9 +29,8 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-    {{-- Title icon --}}
-    <link rel="icon" type="image/png" href="{{asset('img/title.svg')}}"/>
-
+    {{-- title icon --}}
+    <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 </head>
 <body>
 

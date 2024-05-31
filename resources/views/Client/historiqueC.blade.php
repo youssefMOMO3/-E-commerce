@@ -31,8 +31,8 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
 
-    {{-- title icon --}}
-    <link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/business-marketing-advertising/64/Marketing_mobile_shop-512.png"/>
+  {{-- title icon --}}
+  <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 </head>
 <body>
 <div class="container-fluid position-relative p-5" id="home">
