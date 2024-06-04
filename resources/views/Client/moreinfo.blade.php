@@ -145,42 +145,43 @@
      {{-- title icon --}}
      <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
 </head>
+
 <body>
     <div class="container-fluid position-relative p-5" id="home">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #0c9eec">
-        <a href="/" class="navbar-brand p-0">
-            <h1 class="m-0">Nestlé-Shop</h1>
-            <!-- <img src="img/logo.png" alt="Logo"> -->
-        </a>
-        <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto py-0">
-                <a href="#Accueil" class="nav-item nav-link active"></a>
-                <a href="#À-propos" class="nav-item nav-link"></a>
-                <a href="#Contactez-nous" class="nav-item nav-link"></a>
-            </div>
-            @if(Auth::check())
-                <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"
-                   class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @else
-                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Login</a>
-                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Register</a>
-            @endif
-
-            <a href="{{route('client.monCmd')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
-                <i class="bi bi-cart-fill"></i>
-                Panier
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #0c9eec">
+            <a href="/" class="navbar-brand p-0">
+                <h1 class="m-0">Nestlé Shop</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
-            
-        </div>
-    </nav>
-</div>
+            <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="#Accueil" class="nav-item nav-link active"></a>
+                    <a href="#À-propos" class="nav-item nav-link"></a>
+                    <a href="#Contactez-nous" class="nav-item nav-link"></a>
+                </div>
+                @if(Auth::check())
+                    <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"
+                       class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
+                    <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
+                @endif
+    
+                <a href="{{route('client.monCmd')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+                    <i class="bi bi-cart-fill"></i>
+                    Panier
+                </a>
+                
+            </div>
+        </nav>
+    </div>
 
     @foreach($data as $d)
         <div class="card-container">
