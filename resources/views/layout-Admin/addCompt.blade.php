@@ -5,7 +5,7 @@
             <a href="{{route('comptes.index')}}" style='color:white'>Go back</a>
         </button>
         <div class="modal-header">
-            <h5 class="modal-title">Create New Accont</h5>
+            <h5 class="modal-title">Créer un nouveau compte</h5>
         </div>
         <div class="modal-body">
             <form method="POST" action="{{route('comptes.store')}}" enctype="multipart/form-data">

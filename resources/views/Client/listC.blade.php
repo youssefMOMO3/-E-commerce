@@ -32,7 +32,12 @@
                             <td>{{$c->email}}</td>
                             <td>{{$c->phone}}</td>
                             <td>
-                                <a href="{{route('admin.listnoir',$c->id)}}" class="btn btn-danger">Ajouter à la liste noire </a>
+                                <a href="{{route('admin.listnoir',$c->id)}}"" class="btn btn-danger">
+                                    <i class="fas fa-ban"></i>
+                                </a>
+                                <a href="" class="btn btn-success">
+                                    <i class="fas fa-info-circle"></i>
+                                </a> 
                             </td>
                         </tr>
                     @endforeach

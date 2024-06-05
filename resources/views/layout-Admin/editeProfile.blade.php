@@ -5,7 +5,7 @@
             <a href="{{route('admin.profile')}}" style='color:white'>Go back</a>
         </button>
         <div class="modal-header">
-            <h5 class="modal-title">Profile Information</h5>
+            <h5 class="modal-title">Informations de profil</h5>
         </div>
         <div class="modal-body">
             <form method="POST" action="{{route('admin.profile.store')}}" enctype="multipart/form-data">

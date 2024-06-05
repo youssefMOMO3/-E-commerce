@@ -1,4 +1,3 @@
-
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
     <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
@@ -7,13 +6,12 @@
     <a href="#" class="sidebar-toggler flex-shrink-0">
         <i class="fa fa-bars"></i>
     </a>
-{{--    <form class="d-none d-md-flex ms-4">--}}
-{{--        <input class="form-control border-0" type="search" placeholder="Search">--}}
-{{--    </form>--}}
+
     <div class="navbar-nav align-items-center ms-auto">
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fa fa-envelope me-lg-2"></i>
+                <span class="badge badge-danger">3</span> <!-- Nombre de messages non lus -->
                 <span class="d-none d-lg-inline-flex">Message</span>
             </a>
             <div style="width: 400px" class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -23,12 +21,11 @@
                             <img class="rounded-circle" src="{{asset('img/OIP.png')}}" alt="" style="width: 40px; height: 40px;">
                             <div class="ms-2">
                                 <h6 class="fw-normal mb-0"><strong>{{$m->name}}</strong> vous envoyer un message</h6>
-                                <small>{{$m->created_at->format('h:i:s')}} Temps</small>
+                                <small>{{$m->created_at->format('d/m/Y h:i:s')}}</small>
                             </div>
                         </div>
                     </a>
                 @endforeach
-
 
                 <hr class="dropdown-divider">
                 <a href="{{route('admin.toutmessage')}}" class="dropdown-item text-center">Voir tous les messages</a>
@@ -37,6 +34,7 @@
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <i class="fa fa-bell me-lg-2"></i>
+                <span class="badge badge-danger">5</span> <!-- Nombre de notifications non lues -->
                 <span class="d-none d-lg-inline-flex">Notificatin</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
@@ -81,12 +79,35 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-
-
             </div>
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
+<style>
+    .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+    }
 
-    
+    .nav-link {
+        position: relative;
+    }
+
+    .navbar-nav .nav-item .nav-link .badge {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        font-size: 12px;
+    }
+</style>

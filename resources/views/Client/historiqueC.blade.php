@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Nestlé | Historique Des commandes</title>
+    <title>Nestlé | Historique Des commandes Livre</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -63,7 +63,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <h3>Tableau du Bord</h3>
+            <h3>Tableau du Bord du commandes livre</h3>
         
         </div>
         <div class="card-body">
@@ -86,8 +86,8 @@
                 <tr style="text-align: center">
                     <th>Id</th>
                     <th>Nom</th>
-                    <th>Couleur</th>
-                    <th>Qte</th>
+                    <th>Categorie</th>
+                    <th>Qantité</th>
                     <th>Prix Total</th>
                     <th>Status De Commande</th>
                     <th>status De Payement</th>
@@ -98,7 +98,7 @@
                     <tr style="text-align: center">
                         <td>{{$c->id}}</td>
                         <td>{{$c->product_title}}</td>
-                        <td>{{$c->color}}</td>
+                        <td>{{$c->marke}}</td>
                         <td>{{$c->qte}}</td>
                         <td>{{$c->price}}</td>
                         <td>{{$c->statuscmd}}</td>
