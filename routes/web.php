@@ -59,7 +59,8 @@ Route::controller(Admin::class)
         Route::get('deletelist/{id}','listC')->name('listblanch');
         Route::get('message','getmessage')->name('message');
         Route::get('toutmessage','toutmessage')->name('toutmessage');
-        // Route::get('/clientDetails','clientDetails')->name('clientDetials');
+        Route::get('/clientDetails/{id}', 'clientDetails')->name('clientDetails');
+      
     });
 //=========================== END Admin dashboards ROUTE ============================================//
 

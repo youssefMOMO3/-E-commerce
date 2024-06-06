@@ -211,4 +211,20 @@ class AdminDashbord extends Controller
             'clients'=>$clients
         ]);
     }
+
+    public function clientDetails($id)
+{
+    // Récupérer les messages, les commandes et les détails de l'utilisateur
+    $message = message::query()->select()->orderBy('created_at', 'desc')->get();
+    $user = User::findOrFail($id);
+    $orders = order::where('name', $user->id)->get(); // Utiliser 'name' comme clé étrangère dans la table 'orders'
+
+    return view('client.clientDetails', [
+        'message' => $message,
+        'user' => $user,
+        'orders' => $orders
+    ]);
+}
+
+    
 }

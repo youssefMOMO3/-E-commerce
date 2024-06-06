@@ -1,61 +1,46 @@
-@extends('Admin.__listclient')
-
+@extends('Admin.__listCmd')
 @section('content')
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="text-body">Liste des Commandes de {{ $client->name }}</h4>
-            </div>
-            <div class="card-body">
-                <nav class="navbar">
-                    <div class="container-fluid mb-3" style="margin-top: 10px">
-                        <a class="navbar-brand"></a>
-                        <form class="d-flex" action="{{ route('admin.clientDetials', ['id' => $client->id]) }}" method="get">
-                            <input style="width: 400px" class="form-control me-2" type="search" placeholder="Search" name="search">
-                            <button class="btn btn-outline-success" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                </nav>
-                <table class="table mt-5">
-                    <tr style="text-align: center">
-                        <th>Id</th>
-                        <th>Nom</th>
-                        <th>Produit</th>
-                        <th>Categorie</th>
-                        <th>Quantité</th>
-                        <th>Prix Total</th>
-                        <th>Statut De Commande</th>
-                        <th>Statut De Payement</th>
-                        <th>Date De Livraison</th>
-                        <th>Actions</th>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="text-body">Nestlé | Détails du Client</h4>
+        </div>
+        <div class="card-body">
+            <h5>Informations du Client</h5>
+            <p><strong>Nom:</strong> {{ $user->name }}</p>
+            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p><strong>Adresse:</strong> {{ $user->adriss }}</p>
+            <p><strong>Ville:</strong> {{ $user->city }}</p>
+            <p><strong>Pays:</strong> {{ $user->contry }}</p>
+            <p><strong>Code Postal:</strong> {{ $user->pinecode }}</p>
+            <p><strong>Téléphone:</strong> {{ $user->phone }}</p>
+            <hr>
+            <h5>Liste des Commandes</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID Commande</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                        <th>Qantité</th>
+                        <th>Prix</th>
                     </tr>
+                </thead>
+                <tbody>
                     @foreach($orders as $order)
-                    <tr style="text-align: center">
-                        <td>{{ $order->id }}</td>
-                        <td>{{ $order->name }}</td>
-                        <td>{{ $order->product_title }}</td>
-                        <td>{{ $order->marke }}</td>
-                        <td>{{ $order->qte }}</td>
-                        <td>{{ $order->price }} DH</td>
-                        <td>{{ $order->statuscmd }}</td>
-                        <td>{{ $order->statuspay }}</td>
-                        <td>
-                            @if($order->dateLiv === null)
-                                En cours
-                            @else
-                                {{ $order->dateLiv }}
-                            @endif
-                        </td>
-                        <td>
-                            <!-- Ajoutez ici les actions pour chaque commande si nécessaire -->
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->created_at }}</td>
+                            <td>{{ $order->statuscmd }}</td>
+                            <td>{{$order->qte}}</td>
+                            <td>{{$order->price}}</td>
+                        </tr>
                     @endforeach
-                </table>
-            </div>
-            <span style="margin-left: 500px">{{ $commande->links() }}</span>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+
 @endsection

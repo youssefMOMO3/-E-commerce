@@ -26,20 +26,21 @@
                         <th>Action</th>
                     </tr>
                     @foreach($client as $c)
-                        <tr style="text-align: center">
-                            <td>{{$c->name}}</td>
-                            <td>{{$c->adriss}}</td>
-                            <td>{{$c->email}}</td>
-                            <td>{{$c->phone}}</td>
-                            <td>
-                                <a href="{{route('admin.listnoir',$c->id)}}"" class="btn btn-danger">
-                                    <i class="fas fa-ban"></i>
-                                </a>
-                                <a href="" class="btn btn-success">
-                                    <i class="fas fa-info-circle"></i>
-                                </a> 
-                            </td>
-                        </tr>
+                    <tr style="text-align: center">
+                        <td>{{$c->name}}</td>
+                        <td>{{$c->adriss}}</td>
+                        <td>{{$c->email}}</td>
+                        <td>{{$c->phone}}</td>
+                        <td>
+                            <a href="{{route('admin.listnoir',$c->id)}}"class="btn btn-danger">
+                                <i class="fas fa-ban"></i>
+                            </a>
+                            <a href="{{ route('admin.clientDetails', ['id' => $c->id]) }}" class="btn btn-success">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                                                    
+                        </td>
+                    </tr>
                     @endforeach
                 </table>
             </div>
@@ -48,3 +49,8 @@
     <span style="margin-left: 500px">{{$client->links()}}</span>
 
 @endsection
+
+     {{-- <a href="{{ route('admin.clientDetails', $c->id) }}" class="btn btn-success">
+                                <i class="fas fa-info-circle"></i>
+                            </a> --}}
+                            
