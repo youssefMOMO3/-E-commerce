@@ -26,7 +26,17 @@
         <td>{{$row->price}}</td>
         <td>{{$row->Qte}}</td>
         <td class="text-danger">Deleted</td>
-        <td><a href="{{route('Produits.Forcedestroy',$row->id)}}" class="btn btn-danger" ><i class="bi bi-trash-fill"></i></a> <a href='{{route("Produits.rolleback",$row->id)}}' class="btn btn-primary"><i class="bi bi-arrow-counterclockwise"></i></a></td>
+        <td><button type="button" class="btn btn-outline-danger">
+          <a href="{{ route('Produits.Forcedestroy', $row->id) }}" style="color: inherit; text-decoration: none;">
+            <i class="bi bi-trash-fill"></i>
+          </a>
+        </button>
+        <button type="button" class="btn btn-outline-primary">
+          <a href="{{ route('Produits.rolleback', $row->id) }}" style="color: inherit; text-decoration: none;">
+            <i class="bi bi-arrow-counterclockwise"></i>
+          </a>
+        </button>
+        </td>
       </tr>
     @endforeach
 

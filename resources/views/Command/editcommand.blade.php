@@ -33,10 +33,10 @@
           <div class="col-5">
             <label>Statut commande</label>
             <select name="statuscmd" class="form-control">
-                <option>{{old('statuscmd',$data->statuscmd)}}</option>
-                <option >on coure</option>
-                <option >livree</option>
-            </select>
+              <option value="">{{ old('statuscmd', $data->statuscmd) }}</option>
+              <option value="en cours" {{ old('statuscmd', $data->statuscmd) == 'en cours' ? 'selected' : '' }}>en cours</option>
+              <option value="livree" {{ old('statuscmd', $data->statuscmd) == 'livree' ? 'selected' : '' }}>livrée</option>
+          </select>
         </div>
 
     </div>

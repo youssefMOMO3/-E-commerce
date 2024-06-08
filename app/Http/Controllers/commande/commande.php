@@ -1,6 +1,5 @@
 <?php
 namespace App\Http\Controllers\Commande;
-
 use App\Http\Controllers\Controller;
 use App\Models\message;
 use App\Models\ProductModel;
@@ -78,13 +77,6 @@ class commande extends Controller
         return redirect(route('Commond.index'));
     }
 
-
-
-
-
-
-
-
     public function edit(string $id)
     {
         $message =message::query()->select()->orderBy('created_at','desc')->get();
@@ -95,8 +87,6 @@ class commande extends Controller
         $data=order::select('*')->findOrFail($id);
         return view("Command.editcommand",['data'=>$data,'orderliv'=>$orderliv,'orders'=>$orders,'message'=>$message,'clients'=>$clients,'products'=>$products]);
     }
-
-
     public function update(requestcommand $request, string $id)
     {
         $data =order::query()->find($id);
@@ -112,6 +102,4 @@ class commande extends Controller
         order::query()->findOrFail($id)->delete();
         return redirect(route('Commond.livree'));
     }
-
-
 }

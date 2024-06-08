@@ -67,8 +67,8 @@
                             <td>{{$x->phone}}</td>
                             <td>{{$x->role}}</td>
                             <td>
-                              <button type="button" class="btn btn-outline-secondary">
-                                <a href="{{route("comptes.delete",$x->id)}}">
+                              <button type="button" class="btn btn-outline-danger">
+                                <a href="{{route('comptes.delete', $x->id)}}" style="color: inherit; text-decoration: none;">
                                   <i class="bi bi-trash"></i>
                                 </a>
                               </button>
@@ -77,6 +77,7 @@
                                   <i class="bi bi-pencil-square"></i>
                                 </a>
                               </button>
+                              
                               
 
                             </td>

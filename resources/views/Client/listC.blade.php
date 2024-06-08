@@ -32,12 +32,17 @@
                         <td>{{$c->email}}</td>
                         <td>{{$c->phone}}</td>
                         <td>
-                            <a href="{{route('admin.listnoir',$c->id)}}"class="btn btn-danger">
-                                <i class="fas fa-ban"></i>
-                            </a>
-                            <a href="{{ route('admin.clientDetails', ['id' => $c->id]) }}" class="btn btn-success">
-                                <i class="fas fa-info-circle"></i>
-                            </a>
+                            <button type="button" class="btn btn-outline-danger">
+                                <a href="{{ route('admin.listnoir', $c->id) }}" style="color: inherit; text-decoration: none;">
+                                  <i class="bi bi-x-circle"></i>
+                                </a>
+                              </button>
+                              <button type="button" class="btn btn-outline-success">
+                                <a href="{{ route('admin.clientDetails', ['id' => $c->id]) }}" style="color: inherit; text-decoration: none;">
+                                  <i class="bi bi-info-circle"></i>
+                                </a>
+                              </button>
+                              
                                                     
                         </td>
                     </tr>
@@ -50,7 +55,5 @@
 
 @endsection
 
-     {{-- <a href="{{ route('admin.clientDetails', $c->id) }}" class="btn btn-success">
-                                <i class="fas fa-info-circle"></i>
-                            </a> --}}
+
                             

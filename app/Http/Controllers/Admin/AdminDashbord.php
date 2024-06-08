@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\DB;
 class AdminDashbord extends Controller
 {
     public function index(){
@@ -212,19 +212,24 @@ class AdminDashbord extends Controller
         ]);
     }
 
+
     public function clientDetails($id)
-{
-    // Récupérer les messages, les commandes et les détails de l'utilisateur
-    $message = message::query()->select()->orderBy('created_at', 'desc')->get();
-    $user = User::findOrFail($id);
-    $orders = order::where('name', $user->id)->get(); // Utiliser 'name' comme clé étrangère dans la table 'orders'
-
-    return view('client.clientDetails', [
-        'message' => $message,
-        'user' => $user,
-        'orders' => $orders
-    ]);
-}
-
+    {
+        $message = message::query()->select()->orderBy('created_at', 'desc')->get();
+        // Retrieve user details
+        $user = User::findOrFail($id);
+        
+        // Retrieve both pending and delivered orders
+        $orders = Order::where('name', $user->id)->where('statuscmd', '=', 'En attente')->get();
+        $orderliv = Order::where('name', $user->id)->where('statuscmd', '=', 'livree')->get();
+        
+        // Pass the user details and orders to the view
+        return view('client.clientDetails', [
+            'message' => $message,
+            'user' => $user,
+            'orders' => $orders,
+        ]);
+    }
+    
     
 }

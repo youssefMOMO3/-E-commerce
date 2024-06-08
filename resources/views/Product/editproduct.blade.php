@@ -57,7 +57,10 @@
     </div>
     <div class="row pt-4" style="margin-left: 156px">
         <div class="col">
-            <input type="submit" class="btn btn-primary" value="Modifier">
+          <button type="submit" class="btn btn-outline-primary">
+            <i class="bi bi-save"></i>
+          </button>
+          
         </div>
     </div>
 

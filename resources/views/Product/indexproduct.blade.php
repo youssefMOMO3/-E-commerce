@@ -1,4 +1,5 @@
 @extends('Admin.__product')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
 @section('content')
 
@@ -34,10 +35,22 @@
               0
         @endif</td>
         <td>
-          <a href="{{route('Produits.edit',$row->id)}}" class="btn btn-primary">Modifier</a>
-          <a href='{{route("Produits.delete",$row->id)}}' class="btn btn-danger">supprimer</a>
-          <a href="{{route('Produits.display',$row->id)}}" class="btn btn-success">Detail</a>
-
+          <button type="button" class="btn btn-outline-success">
+            <a href="{{ route('Produits.edit', $row->id) }}" style="color: inherit; text-decoration: none;">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+          </button>
+          <button type="button" class="btn btn-outline-danger">
+            <a href="{{ route('Produits.delete', $row->id) }}" style="color: inherit; text-decoration: none;">
+              <i class="bi bi-trash"></i>
+            </a>
+          </button>
+          <button type="button" class="btn btn-outline-primary">
+            <a href="{{ route('Produits.display', $row->id) }}" style="color: inherit; text-decoration: none;">
+              <i class="bi bi-eye"></i>
+            </a>
+          </button>
+          
           </td>
       </tr>
     @endforeach
