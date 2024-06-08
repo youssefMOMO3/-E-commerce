@@ -33,67 +33,194 @@
 
     {{-- title icon --}}
     <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
+    <style>
+        /* Container for the entire card */
+        .card-container {
+            max-width: 800px; /* Ensure a max-width for better design */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Container for the image */
+        .detail-img-container {
+            flex: 1 1 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        /* Image styles */
+        .detail-img-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Container for the details */
+        .details-body {
+            flex: 1 1 50%;
+            padding: 20px;
+        }
+
+        /* Title styles */
+        .detail-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Description styles */
+        .detail-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Price styles */
+        h3 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        /* Button styles */
+        .btn {
+            transition: transform 0.3s ease-in-out;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .alert {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #dc3545;
+        }
+
+        .form-control, .form-select {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
 </head>
 <body>
-<!--Header-->
-<div class="container-fluid position-relative p-5" id="home">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #064c4c">
-        <a href="/" class="navbar-brand p-0">
-            <h1 class="m-0">Nestlé-Shop</h1>
-            <!-- <img src="img/logo.png" alt="Logo"> -->
-        </a>
-        <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav mx-auto py-0">
-                <a href="#Accueil" class="nav-item nav-link active"></a>
-                <a href="#À-propos" class="nav-item nav-link"></a>
-                <a href="#Contactez-nous" class="nav-item nav-link"></a>
+    <div class="container-fluid position-relative p-5" id="home">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="background: #0c9eec">
+            <a href="/" class="navbar-brand p-0">
+                <h1 class="m-0">Nestlé Shop</h1>
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="#Accueil" class="nav-item nav-link active"></a>
+                    <a href="#À-propos" class="nav-item nav-link"></a>
+                    <a href="#Contactez-nous" class="nav-item nav-link"></a>
+                </div>
+                @if(Auth::check())
+                    <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"
+                       class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
+                    <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
+                @endif
+    
+                <a href="{{route('client.monCmd')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
+                    <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                      </svg>    
+                </a>
+                
             </div>
-            <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"
-               class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
-
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 
 <div class="container-fluid container-responsive">
     @foreach($card as $d)
-        <div class="card mb-3 d-inline-flex flex-column " style="max-width: 540px; margin-top: 50px ;margin-left: 400px">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{asset("images/product/$d->avatar")}}" class="img-fluid rounded-center" alt="..." style="height:300px">
-                </div>
-                <div class="col-md-8" >
-                    <div class="card-body">
-                        <h3 class="card-title">{{$d->name}}</h3>
-                        <h6 class="card-title text-body">{{$d->marke}}</h6>
-                        <p class="card-text">{{$d->description}}</p>
-                        <h5 class="card-text">{{$d->size}}</h5>
-                        <p class="card-text text-start mt-4"><small class="text-body-secondary ">{{$d->price}} $</small></p>
-
-                        <!--add to cart-->
-                        <form action="{{route('client.updateitem',$d->id)}}" method="post">
-                            @csrf
-                            <div class="col-5 mt-4">
-                                <input style="width:100px;" type="number" value="{{old('qte',$d->qte)}}" required class="form-control" min="1" name="qte">
-                            </div>
-                            <div class="row pt-3">
-                                <div class="col-2"><button class="btn btn-primary" type="submit" style="margin-left: 140px;">Modifier</button></div>
-                                <div class="col-2"><a class="btn btn-danger" href="{{route('client.card')}}">Annuler</a></div>
-                            </div>
-                        </form>
+        <div class="card-container">
+            <div class="detail-img-container">
+                <img src="{{asset("images/product/$d->avatar")}}" alt="{{ $d->name }}">
+            </div>
+            <div class="details-body">
+                <h1 style="text-align: center;" class="detail-title">{{ $d->product_title }}</h1>
+                <p style="text-align: center;">{{ $d->marke }}</p>
+                <hr>
+                <!--add to cart-->
+                <form action="{{route('client.updateitem',$d->id)}}" method="post">
+                    @csrf
+                   
+                    <div class="d-flex justify-content-start align-items-center mb-3">
+                        <input type="number" value="{{old('qte',$d->qte)}}" required class="form-control" min="1" name="qte">
+                        <select class="form-select" name="color" required>
+                            <option value="" disabled selected>Choose the size</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                        </select>
                     </div>
-                </div>
+                    @if(Session::has('status'))
+                        <div class="alert mt-2">
+                            {{ Session('status') }}
+                        </div>
+                    @endif
+                    <h3>{{ $d->price }} dh</h3>
+                       
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <a   href="{{ route('client.card') }}" class="btn btn-success" href="" style="margin-right: 10px;">
+                            <i class="bi bi-pencil-square"></i> 
+                        </a>
+                    
+                        <a class="btn btn-danger" href="{{ route('client.card') }}">
+                            <i class="bi bi-x-circle"></i> 
+                        </a>
+                    </div>
+                    
+                    
+                </form>
             </div>
         </div>
     @endforeach
-
 </div>
 </body>
 </html>

@@ -44,8 +44,6 @@
         </td>
       
         <td>
-          {{-- <a href="{{route('Commond.edit',$row->id)}}" class="btn btn-primary">Modifier</a>
-          <a href='{{route("Commond.delete",$row->id)}}' class="btn btn-danger">Supprimer</a> --}}
           <button type="button" class="btn btn-outline-danger">
             <a href="{{route("Commond.delete",$row->id)}}" style="color: inherit; text-decoration: none;">
               <i class="bi bi-trash"></i>

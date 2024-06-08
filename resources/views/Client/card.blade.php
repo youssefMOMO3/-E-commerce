@@ -117,6 +117,7 @@
             </div>
             <table class="table table-responsive">
                 <tr style="text-align: center">
+                    <th>Id Produit</th>
                     <th>Produit</th> 
                     <th>Categorie</th>
                     <th>Taille</th>
@@ -126,31 +127,27 @@
                 </tr>
                 <form method="post" action="{{route('client.confirme')}}">
                     @csrf
-                @foreach($card as $c)
-                    <tr style="text-align: center;padding: 10px;color: black;text-align: center">
-{{--                        <input type="hidden" name="id[]" value="{{$c->id}}">--}}
-                        <td><input  type="text" name="product_title[]" value="{{$c->product_title}}" style="border: none;text-align: center" >
+                    @foreach($card as $c)
+                        <tr style="text-align: center;padding: 10px;color: black;text-align: center">
+                            <td><input  type="text" name="id[]" value="{{$c->id}}" style="border: none;text-align: center" ></td>
+                            <td><input  type="text" name="product_title[]" value="{{$c->product_title}}" style="border: none;text-align: center" ></td>
+                            <td><input type="text" name="marke[]" value="{{$c->marke}}" style="border: none;text-align: center" readonly></td>
+                            <td><input type="text" name="color[]" value="{{$c->color}}" style="border: none;text-align: center ;width:50px" readonly></td>
+                            <td><input type="text" name="qte[]" value="{{$c->qte}}" style="border: none;text-align: center" readonly> </td>
+                            <td><input type="text" name="price[]" value="{{$c->qte * $c->price}}DH" readonly style="border: none;text-align: center"></td>
+     <td class="d-flex gap-2">
+                                <a href="{{route('client.modifer',$c->id)}}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{route('client.delete',$c->id)}}"  class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
                             </td>
-                        <td><input type="text" name="marke[]" value="{{$c->marke}}" style="border: none;text-align: center" readonly></td>
-                        <td><input type="text" name="color[]" value="{{$c->color}}" style="border: none;text-align: center ;width:50px" readonly></td>
-                        <td><input type="text" name="qte[]" value="{{$c->qte}}" style="border: none;text-align: center" readonly> </td>
-                        <td><input type="text" name="price[]" value="{{$c->qte * $c->price}}DH" readonly style="border: none;text-align: center"></td>
-                        <td class="d-flex gap-2">
-                            <a href="{{route('client.delete',$c->id)}}" class="btn btn-danger">supprimer</a>
-                            <a href="{{route('client.modifer',$c->id)}}" class="btn btn-primary">modifer</a>
-                        </td>
-
-                    </tr>
-                @endforeach
-            </table>
-{{--            <div class="card-footer">--}}
-{{--            </div>--}}
-        </div>
-
-            <button type="submit" style="margin-left: 620px;width: 250px" class="btn btn-success mt-4">confirmer</button>
-            {{-- <a href="{{ route('client.monCmd') }}" class="btn btn-primary mt-4">Suivi De Commande</a> --}}
-        </form>
-    </div>
-
-</body>
-</html>
+                        </tr>
+                    @endforeach
+                </table>                 {{--            <div class="card-footer">--}}
+                {{--            </div>--}}
+                        </div>
+                
+                            <button type="submit" style="margin-left: 550px;width: 250px" class="btn btn-success mt-4">confirmer</button>
+                        </form>
+                    </div>
+                
+                </body>
+                </html>
