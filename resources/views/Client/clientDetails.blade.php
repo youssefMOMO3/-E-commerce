@@ -7,28 +7,30 @@
         </div>
         <div class="card-body">
             <h5>Liste des Commandes {{ $user->name }}</h5>
+            <p><strong>Nom:</strong> {{ $user->name }}</p>
+            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p><strong>Téléphone:</strong> {{ $user->phone }}</p>
+            <hr>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID Commande</th>
-                        <th>Nom du Client</th>
-                        <th>Téléphone du Client</th>
                         <th>Produit</th>
                         <th>Quantité</th>
                         <th>Prix Total</th>
                         <th>Date</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($orders as $order)
                         <tr>
                             <td>{{ $order->id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>{{ $order->product_title}}</td>
+                            <td>{{ $order->product_title }}</td>
                             <td>{{ $order->qte }}</td>
                             <td>{{ $order->qte * $order->price }} DH</td>
                             <td>{{ $order->created_at }}</td>
+                            <td>{{ $order->statuscmd }}</td>
                         </tr>
                     @endforeach
                 </tbody>

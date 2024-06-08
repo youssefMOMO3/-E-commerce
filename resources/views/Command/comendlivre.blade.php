@@ -9,7 +9,7 @@
     <thead style="text-align: center">
       <tr>
         <th scope="col">Id</th>
-        <th>Name</th>
+         <th>Produit</th>
         <th scope="col">Phone</th>
         <th scope="col">Address</th>
         <th scope="col">Quantité</th>

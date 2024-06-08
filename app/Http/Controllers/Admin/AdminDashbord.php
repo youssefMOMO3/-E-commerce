@@ -213,23 +213,23 @@ class AdminDashbord extends Controller
     }
 
 
-    public function clientDetails($id)
-    {
-        $message = message::query()->select()->orderBy('created_at', 'desc')->get();
-        // Retrieve user details
-        $user = User::findOrFail($id);
-        
-        // Retrieve both pending and delivered orders
-        $orders = Order::where('name', $user->id)->where('statuscmd', '=', 'En attente')->get();
-        $orderliv = Order::where('name', $user->id)->where('statuscmd', '=', 'livree')->get();
-        
-        // Pass the user details and orders to the view
-        return view('client.clientDetails', [
-            'message' => $message,
-            'user' => $user,
-            'orders' => $orders,
-        ]);
-    }
+        public function clientDetails($id)
+        {
+            $message = message::query()->select()->orderBy('created_at', 'desc')->get();
+            // Retrieve user details
+            $user = User::findOrFail($id);
+            
+            // Retrieve both pending and delivered orders
+            $orders = Order::where('name', $user->id)->where('statuscmd', '=', 'En attente')->get();
+            $orderliv = Order::where('name', $user->id)->where('statuscmd', '=', 'livree')->get();
+            
+            // Pass the user details and orders to the view
+            return view('client.clientDetails', [
+                'message' => $message,
+                'user' => $user,
+                'orders' => $orders,
+            ]);
+        }
     
     
 }
