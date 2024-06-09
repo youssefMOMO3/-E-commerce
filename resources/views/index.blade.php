@@ -45,49 +45,57 @@
         <!-- Spinner End -->
 
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0" id="home">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <h1 class="m-0">Nestlé Shop</h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
-                </a>
-                <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav mx-auto py-0">
-                        <a href="#Accueil" class="nav-item nav-link active">Accueil</a>
-                        <a href="{{route('client.index')}}" class="nav-item nav-link active">Boutique</a>
-                        <a href="#À-propos" class="nav-item nav-link">À propos</a>
-                        <a href="#Contactez-nous" class="nav-item nav-link">Contactez-nous</a>
-                    </div>
-                    @if(Auth::check())
-                        <a href="{{url("/".Auth::user()->role."/dashbord")}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Commencez</a>
-                    @else
-                        <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
-                        <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
-                    @endif
-                </div>
-            </nav>
+       <!-- Navbar & Hero Start -->
+<div class="container-xxl position-relative p-0" id="home">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="m-0">Nestlé Shop</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav mx-auto py-0">
+                <a href="#Accueil" class="nav-item nav-link active"><i class="fa fa-home"></i> Accueil</a>
+                <a href="{{route('client.index')}}" class="nav-item nav-link active"><i class="fa fa-store"></i> Boutique</a>
+                <a href="#À-propos" class="nav-item nav-link"><i class="fa fa-info-circle"></i> À propos</a>
+                <a href="#Contactez-nous" class="nav-item nav-link"><i class="fa fa-envelope"></i> Contactez-nous</a>
+            </div>
+            @if(Auth::check())
+            <a href="{{route('logout')}}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"
+class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-sign-out-alt"></i> Déconnecter</a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+@csrf
+</form>
+            @else
+                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-sign-in-alt"></i></a>
+                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-user-plus"></i></a>
+            @endif
+        </div>
+    </nav>
 
-            <div class="container-xxl bg-primary hero-header" id="Accueil">
-                <div class="container">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="text-white mb-4 animated slideInDown">Bienvenue sur votre plateforme exclusive Nestlé : des produits de qualité à des prix avantageux rien que pour vous !</h1>
-                            <button class="btn btn-dark me-2 " style="margin-left:230px;width: 150px;border-radius: 8px ">
-                                <a href="{{route('client.index')}}" style="text-decoration: none" class="text-white">Commencez<i class="fa-solid fa-play" style="margin-left: 6px"></i></a>
-                            </button>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid rounded animated zoomIn" src="{{asset('img/Ness.png')}}" alt="">
-                        </div>
-                    </div>
+    <div class="container-xxl bg-primary hero-header" id="Accueil">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1 class="text-white mb-4 animated slideInDown">Bienvenue sur votre plateforme exclusive Nestlé : des produits de qualité à des prix avantageux rien que pour vous !</h1>
+                    @if(Auth::check())
+                    <a href="{{url('/'.Auth::user()->role.'/dashbord')}}" class="btn btn-dark me-2 text-white" style="margin-left:230px; width: 150px; border-radius: 8px; text-decoration: none;">
+                        <i class="fa fa-play"></i> Commencez
+                    </a>
+                @endif
+                </div>
+                <div class="col-lg-6 text-center text-lg-start">
+                    <img class="img-fluid rounded animated zoomIn" src="{{asset('img/Ness.png')}}" alt="">
                 </div>
             </div>
         </div>
-        <!-- Navbar & Hero End -->
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+
         <!-- About Start -->
         <div class="container-xxl py-6" id="À-propos">
             <div class="container">
