@@ -100,10 +100,11 @@
             </div>
             <a href="{{route('logout')}}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();"
-               class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
+               class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-sign-out-alt"></i> Déconnecter</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
+            
 
         </div>
     </nav>

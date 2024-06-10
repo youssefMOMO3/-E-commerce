@@ -88,16 +88,18 @@
                 <a href="#Contactez-nous" class="nav-item nav-link"></a>
             </div>
             @if(Auth::check())
-                <a href="{{route('logout')}}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"
-                   class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+            <a href="{{route('logout')}}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"
+class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-sign-out-alt"></i> Déconnecter</a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+@csrf
+</form>
             @else
-                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Se connecter</a>
-                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">S'inscrire</a>
+                <a href="{{route('login')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-sign-in-alt"></i></a>
+                <a href="{{route('register')}}" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa fa-user-plus"></i></a>
             @endif
+        </div>
+    </nav>
 
             {{-- <a href="{{route('client.index')}}" class="btn btn-warning" style="margin-left: 8px; text-decoration: none">
                 Retour

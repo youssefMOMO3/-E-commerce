@@ -8,6 +8,51 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    
+    <style>
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-input {
+            width: 400px;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        
+        .search-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #218838;
+        }
+        
+        .search-button i {
+            font-size: 16px;
+        }        
+            </style>
 
     <!-- Favicon -->
     <link href="{{asset('img/favicon.ico')}}" rel="icon">
@@ -52,7 +97,7 @@
             </div>
             <a href="{{route('logout')}}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();"
-               class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Déconnecter</a>
+               class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"> <i class="fa fa-sign-out-alt"></i> Déconnecter</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
@@ -64,22 +109,22 @@
     <div class="card">
         <div class="card-header">
             <h3>Tableau du Bord du commandes livre</h3>
-        
+            <br>
         </div>
         <div class="card-body">
             <a href="{{ route('client.showcmd')}}" class="btn btn-warning">Suivi de commande</a>
             <a href="" class=" btn btn-active">Historique des commandes</a>
             <nav class="navbar">
-                <div class="container-fluid mb-3" style="margin-top: 9px">
+                <div class="container-fluid mb-3" style="margin-top: 10px">
                     <a class="navbar-brand"></a>
-                    <form class="d-flex" action="{{route('client.historiqueserch')}}" method="get">
+                    <form class="search-form" action="{{route('client.rechercher')}}" method="get">
                         @csrf
-                        <input class="form-control me-2" type="search" placeholder="Search" name="search">
-                        <button class="btn btn-outline-success" type="submit">
+                        <input class="search-input" type="search" name="search" placeholder="Rechercher...">
+                        <button class="search-button" type="submit">
                             <i class="fas fa-search"></i>
-                          </button>
-
+                        </button>
                     </form>
+                    
                 </div>
             </nav>
             <table class="table mt-5">
