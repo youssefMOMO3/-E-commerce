@@ -185,15 +185,15 @@ use Symfony\Component\HttpFoundation\Session\Session;class ClientSide extends Co
     public function showcmd(){
         return redirect(route('client.monCmd'));
     }
-
-    //message user
     public function message(Request $request){
-        $message = new message();
+        $message = new Message();
         $message->name = $request->name;
         $message->email = $request->email;
         $message->suject = $request->sujet;
         $message->description = $request->description;
         $message->save();
-        return redirect()->back()->with('status','merci pour votre message');
+    
+        return redirect()->back()->with('status', 'Merci pour votre message');
     }
+    
 }

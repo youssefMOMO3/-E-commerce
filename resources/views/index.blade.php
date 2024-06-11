@@ -60,7 +60,7 @@
                 <a href="#Accueil" class="nav-item nav-link active"><i class="fa fa-home"></i> Accueil</a>
                 <a href="{{route('client.index')}}" class="nav-item nav-link active"><i class="fa fa-store"></i> Boutique</a>
                 <a href="#À-propos" class="nav-item nav-link"><i class="fa fa-info-circle"></i> À propos</a>
-                <a href="#Contactez-nous" class="nav-item nav-link"><i class="fa fa-envelope"></i> Contactez-nous</a>
+                <a href="#Contactez-nous" class="nav-item nav-link"><i class="fa fa-envelope"></i> Contact</a>
             </div>
             @if(Auth::check())
             <a href="{{route('logout')}}" onclick="event.preventDefault();
@@ -94,7 +94,6 @@ class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa
         </div>
     </div>
 </div>
-<!-- Navbar & Hero End -->
 
         <!-- About Start -->
         <div class="container-xxl py-6" id="À-propos">

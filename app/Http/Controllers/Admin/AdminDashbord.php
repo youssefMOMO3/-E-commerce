@@ -212,7 +212,6 @@ class AdminDashbord extends Controller
         ]);
     }
 
-
         public function clientDetails($id)
         {
             $message = message::query()->select()->orderBy('created_at', 'desc')->get();
