@@ -14,7 +14,7 @@
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h6 class="mb-0">{{$m->name}}</h6>
-                                        <small>{{$m->created_at->format('h:i:s')}} Temps</small>
+                                        <small>{{$m->created_at->format('d/m/Y h:i:s')}}</small>
                                     </div>
                                     <span>{{$m->suject}}</span>
                                 </div>
