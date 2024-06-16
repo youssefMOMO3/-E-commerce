@@ -29,9 +29,34 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style1.css')}}" rel="stylesheet">
-
+  
     {{-- title icon --}}
     <link rel="icon" type="image/png" href="{{asset('img/LogoN.png')}}"/>
+    <style>
+        /* Style pour les navigateurs basés sur WebKit (Chrome, Safari, Opera, etc.) */
+::-webkit-scrollbar {
+  width: 30px; /* Largeur de la barre de défilement */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #d9e9f7; /* Couleur de la piste, proche du bleu de fond */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0c9eec; /* Couleur de la barre, reprise du bleu foncé du logo */
+  border-radius: 30px; /* Arrondir les bords de la barre */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #0c9eec; /* Couleur de la barre au survol, plus foncée */
+}
+
+/* Style pour Firefox */
+* {
+  scrollbar-width: thin; /* Largeur de la barre : thin, auto ou none */
+  scrollbar-color: #0c9eec #d9e9f7; /* Couleurs de la barre et de la piste */
+}
+    </style>
 </head>
 
 <body>
