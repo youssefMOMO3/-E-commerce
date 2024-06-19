@@ -152,7 +152,6 @@ class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"><i class="fa
                 </div>
             </div>
         </div>
-        
         <!-- About End -->
         <!-- Contact Start -->
         <div class="container-xxl py-6" id="Contactez-nous">
