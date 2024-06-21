@@ -17,3 +17,6 @@ class card extends Model
     ];
 
 }
+
+
+
